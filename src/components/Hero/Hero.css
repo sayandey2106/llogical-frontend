@@ -1,0 +1,47 @@
+.index-module_Image__-UrHA {
+    object-fit: cover;
+    object-position: center;
+    max-width: 100%;
+    height: auto;
+}
+.img{
+    background: url("https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/2020_6$largeimg_1222328281.jpg") no-repeat;
+    /* background-position: cover; */
+    background-size: cover;
+}
+
+.HeroSlider-module_Wrapper__TaeBr {
+    max-width: 100%;
+    height: 100vh !important;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    animation: HeroSlider-module_fade-in__5as8N var(--slider-fade-in-duration, 100) ease-in;
+}
+@media screen and (max-width:1000px) {
+    .HeroSlider-module_Wrapper__TaeBr{
+        height: 40vh !important;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .HeroSlider-module_Wrapper__TaeBr{
+        height: 40vh !important;
+    }
+}
+@media screen and (max-width:520px) {
+    .HeroSlider-module_Wrapper__TaeBr{
+        height: 40vh !important;
+    }
+    .hero-card{
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        margin: 1rem;
+    
+    }
+}
+@media screen and (max-width:400px) {
+    .HeroSlider-module_Wrapper__TaeBr{
+        height: 40vh !important;
+    }
+}

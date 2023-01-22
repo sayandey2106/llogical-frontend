@@ -1,85 +1,35 @@
-import React, {Component} from "react";
-import { BrowserRouter as Router,  Route} from "react-router-dom";
-import Hero from "./Hero/Hero";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from 'react';
+import Hero from './Hero/Hero';
+import Landing from './Hero/Landing';
+import Login from './Login/Login';
+import Courses from './Courses/Courses';
+import Contact from './Contact us/Contact us';
+import DemoClass from './DemoClass/DemoClass';
+import AboutUs from './AboutUs/AboutUs';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import Register from './Register/Register';
+export default function Router() {
+  return (
+    <div>
+        <BrowserRouter>
 
-
-class Routes extends Component {
-
-    render() {
-       
-        let body;
-
-        // if (login.isHome===true) 
-        // if(!(sessionStorage.getItem('lp_auth_token')))
-         {
-            body =
-                <div
-                    style={{
-                        display: "flex",
-                    }}>
-                    <main
-                        style={{
-                            flexGrow: 1
-                        }}>
-                        <Route exact path="/login" component={Hero} />
-                        {/* <Route exact path="/" component={Login}/> */}
-                      
-                        {/* <Route path="/" component={StudentDashboardContainer}/> */}
-                        {/* <Route exact path="/" component={QuestionCont}/> */}
-                        {/* <Route path="/" component={ProfileCont}/> */}
-                   
-                        {/* <Route path="/survey" component={Survey} /> */}
-                    </main>
-                 
-                </div>
-        } 
-        // else 
-        //   {
-        //         body =
-        //         <div
-        //             style={{
-        //                 display: "",
-        //             }}>
-                  
-        //             <main
-        //                 style={{
-        //                     flexGrow: 1,
-        //                     marginTop: 10
-        //                 }}>
-
-        //                 {/* <Route exact path="/login" component={Login} /> */}
-        //                 {/* <Route exact path="/login" component={Login} /> */}
-        //                 {/* <Route path="/" component={Controller_con}/> */}
-        //                 {/* ADMIN ROUTES */}
-        //                 {/* <Route exact path="/dashboard" component={AdminDashboardCont}/> */}
-        //                 {/* <Route exact path="/change-password" component={ChangePasswordCont}/>
-        //                 <Route exact path="/forgot-password" component={ForgotCont}/> */}
-        //                 {/* <Route exact path="/" component={Users}/> */}
-        //                 {/* <Route exact path="/" component={HomeCont}/>
-        //                 <Route exact path="/Shop" component={ShopAndWarehouse}/> */}
-        //                 {/* <Route exact path="/signup" component={SignupCont}/> */}
-        //                 {/* <Route exact path="/products" component={Products}/> 
-        //                 <Route exact path="/login" component={Login}/>
-        //                 <Route exact path='/log' component={LogTable}/>                        <Route path="/" component={Controller_con}/> */}
-
-        //                 {/* <Route exact path="/lead" component={Lead}/> */}
-        //                 {/* <Route exact path="/addlead" component={AddLead}/> */}
-        //             </main>
-        //             {/* <Footer /> */}
-        //         </div>
-        //     } 
-
-
-            
-            
-        
-
-        return (
-            <Router>
-                {body}
-            </Router>
-        );
-    }
+<Header/>
+{/* <Contact/> */}
+<Routes>
+    <Route exact path="/" element={<Hero />}/>
+    <Route exact path="/login" element={<Login />}/>
+    <Route exact path="/courses" element={<Courses />}/>
+    <Route exact path="/contact" element={<Contact />}/>      
+    <Route exact path="/demo" element={<DemoClass />}/>  
+    <Route exact path="/aboutus" element={<AboutUs />}/> 
+    <Route exact path="/register" element={<Register/>}/> 
+      </Routes>
+    
+      <Footer/>
+    </BrowserRouter>
+    </div>
+  )
 }
-
-export default (Routes);

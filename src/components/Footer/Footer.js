@@ -10,7 +10,7 @@ export default function Footer() {
     <NavLink to="/aboutus">
 
     <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-    <img src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2FFB_IMG_1674130454403.jpg?alt=media&token=ce95125b-e8ee-4508-b1ab-f21d41352c67" width="50px"></img>
+    <img src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2F24969119-c8f7-4825-9a48-c7f0d8b7c684-removebg-preview.png?alt=media&token=17476b44-4df6-4301-a78b-c5e6d276c65e" width="50px"></img>
       <span class="ml-3 text-xl">LLOGICAL</span>
     </a>
     </NavLink>

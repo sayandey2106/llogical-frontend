@@ -35,7 +35,7 @@
 }
 
 .solution_cards_box .solution_card:hover {
-  background:  #00FF00;
+  background:  #5CFF5C;
   /* color: #fff; */
   transform: scale(1.05);
   z-index: 9;
@@ -88,9 +88,9 @@
   border-radius: 15px;
   background: linear-gradient(
     140deg,
-    #00FF00 50%,
-    #00FF00 75%,
-    #00FF00 90%
+    #5CFF5C 50%,
+    #5CFF5C 75%,
+    #5CFF5C 90%
   ) !important;
   color: #fff;
   font-weight: 500;

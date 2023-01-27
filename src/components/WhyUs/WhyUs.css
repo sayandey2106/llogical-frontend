@@ -1,0 +1,50 @@
+.learn-text {
+    font-size: 50px;
+    line-height: 62px;
+    letter-spacing: 0;
+    color: black;
+
+   
+}
+.why-log {
+    background: linear-gradient(89deg, #784d9f 100%, #0059ff 0) no-repeat padding-box;
+    background-clip: text;
+    font-weight: bolder;
+    font-size: 50px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.learn-text-sm {
+    text-align: center;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0;
+    color: #888;
+}
+
+.why-phy-box {
+    border-radius: 50px 50px 0 0;
+}
+
+.why-phy-box, .why-phy-box-inn, .why-phy-box-last {
+    background: no-repeat padding-box #fff;
+}
+.why-inner-head {
+    font-size: 24px;
+    line-height: 58px;
+    color: #5a4bda;
+}
+.why-inner-head, .why-inner-text {
+    text-align: left;
+    letter-spacing: 0;
+}
+.why-inner-text {
+    font-size: 20px !important;
+    font-weight: 500;
+    line-height: 25px;
+    color: #656565;
+}
+.why-inner-head, .why-inner-text {
+    text-align: left;
+    letter-spacing: 0;
+}

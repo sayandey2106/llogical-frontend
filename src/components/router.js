@@ -11,6 +11,7 @@ import AboutUs from './AboutUs/AboutUs';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import Register from './Register/Register';
+import Subject from './Subject/Subject';
 export default function Router() {
   return (
     <div>
@@ -26,6 +27,7 @@ export default function Router() {
     <Route exact path="/demo" element={<DemoClass />}/>  
     <Route exact path="/aboutus" element={<AboutUs />}/> 
     <Route exact path="/register" element={<Register/>}/> 
+    <Route exact path="/subject" element={<Subject/>}/> 
       </Routes>
     
       <Footer/>

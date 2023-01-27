@@ -8,7 +8,7 @@ export default function AboutUs() {
 
           <section class="text-gray-600 body-font ">
   <div class="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
-  <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">All About <b>LLOGICAL</b></h1>
+  <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">All About <span className='why-log'><b>LLOGICAL</b></span></h1>
     <img class="lg:w-1/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2F24969119-c8f7-4825-9a48-c7f0d8b7c684-removebg-preview.png?alt=media&token=17476b44-4df6-4301-a78b-c5e6d276c65e"/>
     <div class="text-center lg:w-2/3 w-full">
       
@@ -22,7 +22,7 @@ We are dedicated to constantly improving and updating our platform to ensure tha
       <div class="flex justify-center">
         <NavLink to="/courses">
 
-        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Our Courses</button>
+        <button class="inline-flex text-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style={{backgroundColor:"#784d9f"}}>Our Courses</button>
         </NavLink>
         <NavLink to="/contact">
 

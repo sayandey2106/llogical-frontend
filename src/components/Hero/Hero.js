@@ -8,6 +8,8 @@ import Courses from '../Courses/Courses';
 import './Hero.css'
 import Landing from './Landing';
 import AboutUs from '../AboutUs/AboutUs';
+import Subject from '../Subject/Subject';
+import WhyUs from '../WhyUs/WhyUs';
 export default function Hero() {
   return (
     <section >
@@ -22,9 +24,10 @@ export default function Hero() {
       <Landing/>
      
 <AboutUs/>
+<Subject/>
       <Courses/>
+<WhyUs/>
       <Contact/>
-
     </div>
     {/* hero end */}
     </section>

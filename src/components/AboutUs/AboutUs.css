@@ -35,7 +35,7 @@
 }
 
 .solution_cards_box .solution_card:hover {
-  background:  #5CFF5C;
+  background:  #784d9f;
   /* color: #fff; */
   transform: scale(1.05);
   z-index: 9;
@@ -47,7 +47,7 @@
 
 .solution_cards_box .solution_card:hover .solu_title h3,
 .solution_cards_box .solution_card:hover .solu_description p {
-  /* color: #fff; */
+  color: #fff;
 }
 
 .solution_cards_box .solution_card:before {
@@ -88,9 +88,9 @@
   border-radius: 15px;
   background: linear-gradient(
     140deg,
-    #5CFF5C 50%,
-    #5CFF5C 75%,
-    #5CFF5C 90%
+    #784d9f 50%,
+    #784d9f 75%,
+    #784d9f 90%
   ) !important;
   color: #fff;
   font-weight: 500;

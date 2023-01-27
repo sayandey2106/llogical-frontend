@@ -36,7 +36,7 @@ export default function Header() {
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8" >
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -55,13 +55,13 @@ export default function Header() {
                   <img className="hidden h-8  lg:block md:block"
                     src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2F24969119-c8f7-4825-9a48-c7f0d8b7c684-removebg-preview.png?alt=media&token=17476b44-4df6-4301-a78b-c5e6d276c65e"
                     alt="Your Company"
-                    width="50px"
-                    height="50px"
+                    width="40px"
+                    height="80px"
                   />
                 </NavLink>
                 <NavLink to="/">
 
-                  <h4 className='text-2xl tracking-tight leading-10 font-extrabold sm:text-2xl text-white sm:leading-none md:text-2xl h-8 hidden lg:block md:block mx-4'>
+                  <h4 className='text-2xl tracking-tight leading-10 font-extrabold sm:text-2xl text-white sm:leading-none md:text-2xl h-8 hidden lg:block md:block mx-2 '> 
                     LLOGICAL
                   </h4>
                 </NavLink>

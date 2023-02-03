@@ -13,6 +13,7 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import swal from "sweetalert";
 export default function DemoClass() {
   const [value, setValue] = React.useState(dayjs("2022-04-07"));
+  const [grade, setGrade]= useState("9");
   const submitForm = () => {
     emailjs
       .sendForm(
@@ -45,6 +46,7 @@ export default function DemoClass() {
   };
 
   const form = useRef();
+
   return (
     <div>
       <Container className="">
@@ -89,7 +91,7 @@ export default function DemoClass() {
                       type="text"
                       autoComplete="email"
                       required
-                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                       placeholder="Name"
                     />
                   </div>
@@ -102,7 +104,7 @@ export default function DemoClass() {
                       type="number"
                       autoComplete="current-password"
                       required
-                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                       placeholder="Mobile"
                     />
                   </div>
@@ -115,23 +117,46 @@ export default function DemoClass() {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                       placeholder="Email address"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="password" className="sr-only">
-                      Grade
-                    </label>
-                    <input
-                      name="class"
-                      type="text"
-                      autoComplete="current-password"
-                      required
-                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Class"
-                    />
-                  </div>
+                  <div className="my-2">
+                  <label htmlFor="grade" className="mt-1 text-black">
+                    Select Grade
+                  </label>
+                  <select
+                    class="form-select appearance-none 
+            block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+   
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    aria-label="Default select example"
+                    name="course"
+                    required
+                    onChange={(e)=>{
+                      setGrade(e.target.value)
+                    }}
+                  >
+                    <option selected value="9">
+                     9
+                    </option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
                   <div>
                     <label htmlFor="password" className="sr-only">
                       Schhol Name
@@ -141,7 +166,7 @@ export default function DemoClass() {
                       type="text"
                       autoComplete="current-password"
                       required
-                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                       placeholder="School name"
                     />
                   </div>
@@ -154,7 +179,7 @@ export default function DemoClass() {
                       type="text"
                       autoComplete="current-password"
                       required
-                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                       placeholder="Address"
                     />
                   </div>
@@ -182,13 +207,29 @@ export default function DemoClass() {
                     aria-label="Default select example"
                     name="course"
                     required
-                  >
+                  value={grade}
+                  >{
+                      (grade === "9" || grade === "10") ?
+                
+
                     <option selected value="BOARD">
-                      BOARD Exam Preperation
-                    </option>
+                    BOARD Exam Preperation
+                  </option>
+                  
+                    :
+                  
+                    <>
+                      <option selected value="BOARD">
+                    BOARD Exam Preperation
+                  </option>
                     <option value="JEE">JEE Preperation</option>
                     <option value="NEET">NEET Preperation</option>
                     <option value="WBJEE">WBJEE Preperation</option>
+                    </>
+                    
+                  
+                  }
+                   
                   </select>
                 </div>
                 <div>
@@ -218,13 +259,13 @@ export default function DemoClass() {
                     {/* <option selected value="0">Select Board</option> */}
                     <option value="CBSE">CBSE</option>
                     <option value="ICSE">ICSE</option>
-                    <option value="ICSE">ISE</option>
+                    <option value="ISC">ISC</option>
                     <option value="WBCHSE">STATE</option>
                   </select>
                 </div>
 
                 <label htmlFor="password" className=" text-black">
-                  Select Date & Time
+                  Select Date 
                 </label>
 
                 <div className="mt-1">
@@ -238,18 +279,18 @@ export default function DemoClass() {
                     placeholder="Name"
                   />
                 </div>
-
                 <div>
-                  <label htmlFor="email-address" className="sr-only">
-                    Time
-                  </label>
+                <label htmlFor="password" className=" text-black">
+                  Select Time 
+                </label>
+                 
                   <input
                     id="email-address"
                     name="time"
                     type="time"
                     autoComplete="email"
                     required
-                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                     placeholder="Name"
                   />
                 </div>
@@ -257,7 +298,7 @@ export default function DemoClass() {
                 <div>
                   <button
                     type="submit"
-                    className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 "
                   >
                     Submit
                   </button>

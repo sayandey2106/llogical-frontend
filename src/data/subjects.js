@@ -30,7 +30,7 @@ export const subjects = [
       id: 4,
       title: 'Chemistry',
       price: '$59.99',
-      description: 'Learn Mathematics With Our Experts',
+      description: 'Learn Chemistry With Our Experts',
       linkImg:"fa-solid fa-flask" ,
       color:"linear-gradient(to right, #ee0979, #ff6a00)",
     },
@@ -38,7 +38,7 @@ export const subjects = [
       id: 5,
       title: 'Computer',
       price: '$19.99',
-      description: 'Learn Mathematics With Our Great Teachers',
+      description: 'Learn Computer With Our Great Teachers',
       linkImg:"fa-solid fa-laptop-code"  ,
       color:"linear-gradient(to right, #0f0c29, #302b63, #24243e)"
     },

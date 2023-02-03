@@ -42,7 +42,7 @@ export default function WhyUs() {
                     <div class="col-12 col-md-9 col-sm-12">
                         <div class="d-flex flex-column">
                             <div class="why-inner-head font-fam-bold px-4">Live Doubt Solving Sessions</div>
-                            <div class="why-inner-text font-fam-regular px-4">At Physics Wallah we always encourage students to ask
+                            <div class="why-inner-text font-fam-regular px-4">We always encourage students to ask
                                 questions. We have created an atmosphere where students don’t hesitate to ask
                                 their doubts. We firmly believe in More you ask, the more you learn.</div>
                         </div>

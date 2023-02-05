@@ -64,12 +64,12 @@ export default function DemoClass() {
                 </h2>
                 <p className="mt-2 text-center text-sm text-gray-600">
                   And{" "}
-                  <a
+                  <p
                     href="#"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
                     start your free trial class
-                  </a>
+                  </p>
                 </p>
               </div>
               <form
@@ -83,7 +83,7 @@ export default function DemoClass() {
                 <input type="hidden" name="remember" defaultValue="true" />
                 <div className="-space-y-px rounded-md shadow-sm">
                   <div>
-                    <label htmlFor="email-address" className="sr-only">
+                    <label htmlFor="email-address" className="mt-1 text-black">
                       Name
                     </label>
                     <input
@@ -96,7 +96,7 @@ export default function DemoClass() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="password" className="sr-only">
+                    <label htmlFor="password" className="mt-1 text-black">
                       Mobile No
                     </label>
                     <input
@@ -109,7 +109,7 @@ export default function DemoClass() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email-address" className="sr-only">
+                    <label htmlFor="email" className="mt-1 text-black">
                       Email
                     </label>
                     <input
@@ -149,16 +149,16 @@ export default function DemoClass() {
                       setGrade(e.target.value)
                     }}
                   >
-                    <option selected value="9">
-                     9
+                    <option selected value="7">
+                     7
                     </option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                     <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
                   </select>
                 </div>
                   <div>
-                    <label htmlFor="password" className="sr-only">
+                    <label htmlFor="password" className="mt-1 text-black">
                       Schhol Name
                     </label>
                     <input
@@ -171,7 +171,7 @@ export default function DemoClass() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="password" className="sr-only">
+                    <label htmlFor="address" className="mt-1 text-black">
                       Address
                     </label>
                     <input
@@ -184,7 +184,7 @@ export default function DemoClass() {
                     />
                   </div>
                 </div>
-                <div>
+                {/* <div>
                   <label htmlFor="password" className="mt-1 text-black">
                     Select Course
                   </label>
@@ -231,9 +231,9 @@ export default function DemoClass() {
                   }
                    
                   </select>
-                </div>
+                </div> */}
                 <div>
-                  <label htmlFor="password" className=" text-black">
+                  <label htmlFor="board" className=" text-black">
                     Select Board
                   </label>
                   <select
@@ -259,12 +259,12 @@ export default function DemoClass() {
                     {/* <option selected value="0">Select Board</option> */}
                     <option value="CBSE">CBSE</option>
                     <option value="ICSE">ICSE</option>
-                    <option value="ISC">ISC</option>
+                   
                     <option value="WBCHSE">STATE</option>
                   </select>
                 </div>
 
-                <label htmlFor="password" className=" text-black">
+                <label htmlFor="date" className=" text-black">
                   Select Date 
                 </label>
 

@@ -1,15 +1,17 @@
 import UNIVERSAL from "../config/config.js"
 import swal from "sweetalert";
 
+
 export const  login = async (login) =>{
+
    console.log("login started")
  const response = await fetch(`${UNIVERSAL.BASEURL}/login`, {
     method :"POST",
     headers : {
         "content-type": "application/json",
        
-       "requested-timestamp": "12/2/22",
-      "conversation-id": "yfhfsa",
+       "requested-timestamp": UNIVERSAL.TIMESTAMP,
+      "conversation-id": UNIVERSAL.CONID,
       },
 
 body : JSON.stringify(login)
@@ -20,11 +22,12 @@ body : JSON.stringify(login)
   
       if(data.status===200){
         swal({
-            title: "Submitted!",
+            title: "Logged In!",
             text: data.message,
             icon: "success",
             button: "Ok!",
           })
+          
         localStorage.setItem('auth_token',data.token)
       }
       else{

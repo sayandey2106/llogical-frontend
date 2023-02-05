@@ -1,7 +1,36 @@
 import React from 'react'
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
-export default function register() {
+export default function Register() {
+
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [mobile, setMobile]= useState("");
+  const [password,setPassword]=useState("");
+  const [confirmPassword,setConfirmPassword]=useState("");
+  const [otp, setOtp]= useState();
+  const [otpDisplay, setOtpDisplay]= useState(false);
+  const [Type, setType] = useState("password");
+  const [Type1, setType1] = useState("password");
+
+
+  const handleToogle = () => {
+    if (Type === "password") {
+      setType("text");
+    } else setType("password");
+  };
+  const handleToogle1 = () => {
+    if (Type1 === "password") {
+      setType1("text");
+    } else setType1("password");
+  };
+  const onVerificationRqst =()=>{
+    if((mobile!="" || password !="" || confirmPassword !="" || name!="") && password===confirmPassword ){
+      setOtpDisplay(true)
+    }
+  }
+
   return (
     <div>
 
@@ -38,7 +67,7 @@ export default function register() {
                 <form>
                   <h1 class="mb-2 text-2xl text-center">Create Your Free Account</h1>
                   <div class="mb-4">
-                  <label htmlFor="password" className=" text-black">
+                  <label htmlFor="name" className=" text-black">
                     Name
                   </label>
                     <input
@@ -46,10 +75,14 @@ export default function register() {
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
                       placeholder="Username"
+                      value={name}
+                      onChange={(e)=>{
+                        setName(e.target.value)
+                       }}
                     />
                   </div>
                   <div class="mb-4">
-                  <label htmlFor="password" className=" text-black">
+                  <label htmlFor="email" className=" text-black">
                     Email
                   </label>
                     <input
@@ -57,29 +90,95 @@ export default function register() {
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
                       placeholder="Email"
+                      value={email}
+                      onChange={(e)=>{
+                        setEmail(e.target.value)
+                       }}
                     />
                   </div>
+                  <div class="mb-4">
+                  <label htmlFor="number" className=" text-black">
+                    Mobile No
+                  </label>
+                    <input
+                      type="number"
+                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      id="exampleFormControlInput1"
+                      placeholder="Mobile No"
+                      value={mobile}
+                      onChange={(e)=>{
+                        setMobile(e.target.value)
+                       }}
+                    />
                   
+                  </div>
                   <div class="mb-4">
                   <label htmlFor="password" className=" text-black">
                     Password
                   </label>
+                  <div className='d-flex'>
                     <input
-                      type="password"
+                      type={Type}
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e)=>{
+                        setPassword(e.target.value)
+                       }}
                     />
+                 
+                     <span
+                  class="input-group-text"
+                  id="addon-wrapping"
+                  onClick={handleToogle}
+                >
+                  {Type === "password" ? (
+                    <i class="fa-solid fa-eye"></i>
+                  ) : (
+                    <i class="fa-solid fa-eye-slash"></i>
+                  )}
+                </span>
+                </div>
                   </div>
                   <div class="mb-4">
                   <label htmlFor="password" className=" text-black">
-                    Confirm Password
+                   Confirm Password
                   </label>
+                  <div className='d-flex'>
                     <input
-                      type="password"
+                      type={Type1}
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
-                      placeholder="Password"
+                      placeholder="Confirm Password"
+                      value={confirmPassword}
+                      onChange={(e)=>{
+                        setConfirmPassword(e.target.value)
+                       }}
+                    />
+                  
+                     <span
+                  class="input-group-text"
+                  id="addon-wrapping"
+                  onClick={handleToogle1}
+                >
+                  {Type1 === "password" ? (
+                    <i class="fa-solid fa-eye"></i>
+                  ) : (
+                    <i class="fa-solid fa-eye-slash"></i>
+                  )}
+                </span>
+                </div>
+                  </div>
+                  <div class={otpDisplay===false ? "hidden" : "mb-4"}>
+                  <label htmlFor="password" className=" text-black">
+                    Enter OTP
+                  </label>
+                    <input
+                      type="number"
+                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      id="exampleFormControlInput1"
+                      placeholder="Enter OTP"
                     />
                   </div>
                   <div class="text-center pt-1 mb-12 pb-1">
@@ -88,10 +187,13 @@ export default function register() {
                       type="button"
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
-                    
+                    onClick={()=>{
+                      onVerificationRqst()
+                    }}
                     >
-                      Sign Up
+                      Verify
                     </button>
+
                    
                     {/* <a class="text-gray-500" href="#!">Forgot password?</a> */}
                   </div>

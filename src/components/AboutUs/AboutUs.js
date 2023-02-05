@@ -22,11 +22,11 @@ We are dedicated to constantly improving and updating our platform to ensure tha
       <div class="flex justify-center">
         <NavLink to="/courses">
 
-        <button class="inline-flex text-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style={{backgroundColor:"#784d9f"}}>Our Courses</button>
+        <button class="inline-flex text-white border-0 py-2 px-6 btn focus:outline-none hover:bg-indigo-600 rounded text-xl" style={{backgroundColor:"#784d9f"}}>Our Courses</button>
         </NavLink>
         <NavLink to="/contact">
 
-        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Contact us</button>
+        <button class="ml-4 inline-flex  border-0 py-2 px-6 focus:outline-none btn btn-secondary rounded text-lg">Contact us</button>
         </NavLink>
       </div>
     </div>

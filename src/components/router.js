@@ -21,13 +21,14 @@ export default function Router() {
 {/* <Contact/> */}
 <Routes>
     <Route exact path="/" element={<Hero />}/>
-    <Route exact path="/login" element={<Login />}/>
+    {/* <Route exact path="/login" element={<Login />}/> */}
     <Route exact path="/courses" element={<Courses />}/>
     <Route exact path="/contact" element={<Contact />}/>      
     <Route exact path="/demo" element={<DemoClass />}/>  
     <Route exact path="/aboutus" element={<AboutUs />}/> 
-    <Route exact path="/register" element={<Register/>}/> 
+    {/* <Route exact path="/register" element={<Register/>}/>  */}
     <Route exact path="/subject" element={<Subject/>}/> 
+    
       </Routes>
     
       <Footer/>

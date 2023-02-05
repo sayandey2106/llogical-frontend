@@ -1,9 +1,11 @@
-
+import moment from 'moment';
 const UNIVERSAL = {
 
     // BASEURL :"https://sreexam.herokuapp.com/"
     BASEURL: "https://samasap-svc.onrender.com/api/v1",
-    PORT : "http://localhost:3000" || "https://ladies-point.web.app/"
+    CONID : Math.random().toString(36).slice(2),
+    TIMESTAMP: moment().format("YYYY-MM-DD hh:mm:ss").toString()
+
 
 };
 

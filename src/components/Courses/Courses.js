@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { courseData } from '../../data/course';
 import Slider from '../Hero/Slider';
 import '../AboutUs/AboutUs.css'
+import MockTest from "../Mock/MockTest"
 const customStyles = {
   content: {
     top: '50%',
@@ -51,19 +52,19 @@ export default function Courses() {
     </div>
     <div class="flex items-center justify-center my-3">
   <div class="inline-flex  focus:shadow-lg" role="group">
-  <button type="button" className={toggle===9?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
-    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+  <button type="button" style={{wordSpacing:"6px"}} className={toggle===0?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl tracking-wider  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
    
       onClick={()=>{
         setItem(courseData)
-        setToggle(9)
+        setToggle(0)
       }}
       
       
       >ALL COURSES</button>
    </div>
   </div>
-    <div class="flex items-center justify-center m-3">
+    {/* <div class="flex items-center justify-center m-3">
   <div class="inline-flex  focus:shadow-lg " role="group">
     <button type="button" className={toggle===1?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
     : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
@@ -110,40 +111,40 @@ export default function Courses() {
         toggleTab(3)
       }}>JEE MAINS</button>
   </div>
-  </div>
+  </div> */}
 
   <div class="flex items-center justify-center m-3">
   <div class="inline-flex  focus:shadow-lg " role="group">
-    <button type="button" className={toggle===5?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    <button type="button" className={toggle===7?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
     : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
    
       onClick={()=>{
-        filterCourseByClass("9")
-        setToggle(5)
+        filterCourseByClass("7")
+        setToggle(7)
       }}
       
       
-      >Class 9</button>
-    <button type="button" className={toggle===6?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+      >Class 7</button>
+    <button type="button" className={toggle===8?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
     : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
 
        
       onClick={()=>{
-        filterCourseByClass("10")
-        toggleTab(6)
-      }}>Class 10</button>
-    <button type="button"  className={toggle===7?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
-    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
-      onClick={()=>{
-        filterCourseByClass("11")
-        toggleTab(7)
-      }}>Class 11</button>
-    <button type="button"  className={toggle===8?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
-    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
-      onClick={()=>{
-        filterCourseByClass("12")
+        filterCourseByClass("8")
         toggleTab(8)
-      }}>Class 12</button>
+      }}>Class 8</button>
+    <button type="button"  className={toggle===9?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+      onClick={()=>{
+        filterCourseByClass("9")
+        toggleTab(9)
+      }}>Class 9</button>
+    <button type="button"  className={toggle===10?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+      onClick={()=>{
+        filterCourseByClass("10")
+        toggleTab(10)
+      }}>Class 10</button>
   </div>
   </div>
 
@@ -164,7 +165,9 @@ return(
                                   sdfds
                                     </div> */}
                                     <div class="solu_title">
-                                    <h3>CLASS {data.class} {data.type}</h3>
+                                    <h3 style={{wordSpacing:"6px"}} className="tracking-wider">CLASS {data.class} {data.type} PREPERATION</h3>
+                                    {/* <h3 className='text-md'>{data.name} </h3>
+                                    <h4 className='text-2xl'>Class {data.class}</h4> */}
                                     </div>
                                     <div class="solu_description text-center px-6 py-3">
                                     <p class="flex items-center text-gray-600 mb-6">
@@ -222,64 +225,9 @@ return(
   </div>
 </section>
 
-{/* modal div */}
-<div>
-{open ? (
-        <>
-          <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
-                    Modal Title
-                  </h3>
-                  <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setOpen(false)}
-                  >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
-                  </button>
-                </div>
-                {/*body*/}
-        
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setOpen(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setOpen(false)}
-                  >
-                    Save Changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
-</div>
+{/* mock test */}
 
-
-
-
- 
-
-
-
+<MockTest/>
 
     </div>
   )

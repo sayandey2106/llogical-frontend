@@ -1,0 +1,13 @@
+.mock-facility-card{
+    height: 250px;
+    width: 250px;
+    justify-content: center;
+    padding: 40px;
+    margin: 6px;
+    
+}
+.mock-facility-card img {
+    height: 100%;
+    width: 100px;
+    margin:10px auto;
+}

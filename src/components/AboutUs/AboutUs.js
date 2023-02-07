@@ -6,7 +6,7 @@ export default function AboutUs() {
     <div class="container " height="100vh">
      
 
-          <section class="text-gray-600 body-font ">
+          <section class="text-gray-600 body-font aboutUs">
   <div class="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
   <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">All About <span className='why-log'><b>LLOGICAL</b></span></h1>
     <img class="lg:w-1/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2F24969119-c8f7-4825-9a48-c7f0d8b7c684-removebg-preview.png?alt=media&token=17476b44-4df6-4301-a78b-c5e6d276c65e"/>
@@ -22,11 +22,11 @@ We are dedicated to constantly improving and updating our platform to ensure tha
       <div class="flex justify-center">
         <NavLink to="/courses">
 
-        <button class="inline-flex text-white border-0 py-2 px-6 btn focus:outline-none hover:bg-indigo-600 rounded text-xl" style={{backgroundColor:"#784d9f"}}>Our Courses</button>
+        <button class="inline-flex text-white border-0 py-2 px-6 btn focus:outline-none hover:bg-indigo-600 rounded text-sm" style={{backgroundColor:"#784d9f", wordSpacing:"5px"}}>Our Courses</button>
         </NavLink>
         <NavLink to="/contact">
 
-        <button class="ml-4 inline-flex  border-0 py-2 px-6 focus:outline-none btn btn-secondary rounded text-lg">Contact us</button>
+        <button class="ml-4 inline-flex  border-0  px-6 focus:outline-none btn btn-secondary rounded text-sm sm:text-sm" style={{ wordSpacing:"5px"}}>Contact us</button>
         </NavLink>
       </div>
     </div>

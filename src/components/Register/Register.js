@@ -26,10 +26,30 @@ export default function Register() {
     } else setType1("password");
   };
   const onVerificationRqst =()=>{
-    if((mobile!="" || password !="" || confirmPassword !="" || name!="") && password===confirmPassword ){
-      setOtpDisplay(true)
+    // && mobile.length()!=10 &&  password.match(/^[A-Za-z]\w{7,14}$/
+var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+      if(password!=confirmPassword){
+
+        alert("password!=confirmPassword")
+        // setOtpDisplay(true)
+      }
+   
+   
+      else if(!password.match(pass )){
+             
+        alert("password not valid");
+            }
+      else{
+              alert("done")
+              setOtpDisplay(true)
+            }
+          
+      
+    
+  
+
     }
-  }
+  
 
   return (
     <div>
@@ -76,6 +96,7 @@ export default function Register() {
                       id="exampleFormControlInput1"
                       placeholder="Username"
                       value={name}
+                      required
                       onChange={(e)=>{
                         setName(e.target.value)
                        }}
@@ -88,8 +109,9 @@ export default function Register() {
                     <input
                       type="email"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput1"
-                      placeholder="Email"
+                      id="exampleFormControlInput2"
+                      placeholder="emailId@email.com"
+                      required
                       value={email}
                       onChange={(e)=>{
                         setEmail(e.target.value)
@@ -102,9 +124,10 @@ export default function Register() {
                   </label>
                     <input
                       type="number"
+                      required
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput1"
-                      placeholder="Mobile No"
+                      id="exampleFormControlInput3"
+                      placeholder="10 digit valid number"
                       value={mobile}
                       onChange={(e)=>{
                         setMobile(e.target.value)
@@ -120,7 +143,8 @@ export default function Register() {
                     <input
                       type={Type}
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput1"
+                      id="exampleFormControlInput4"
+                      required
                       placeholder="Password"
                       value={password}
                       onChange={(e)=>{
@@ -148,6 +172,7 @@ export default function Register() {
                   <div className='d-flex'>
                     <input
                       type={Type1}
+                      required
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
                       placeholder="Confirm Password"
@@ -176,7 +201,7 @@ export default function Register() {
                   </label>
                     <input
                       type="number"
-                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      class="mb-4 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
                       placeholder="Enter OTP"
                     />
@@ -190,9 +215,12 @@ export default function Register() {
                     onClick={()=>{
                       onVerificationRqst()
                     }}
-                    >
-                      Verify
+                    >{
+                      otpDisplay===false ?"verify mobile":" Verify OTP"
+                    }
+                     
                     </button>
+                   
 
                    
                     {/* <a class="text-gray-500" href="#!">Forgot password?</a> */}

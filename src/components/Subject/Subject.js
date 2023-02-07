@@ -45,7 +45,7 @@ const [size, setSize] = useState(subjects.length)
 
   
   return (
-    <section className='topics my-6'>
+    <section className='topics my-6 '>
   <h1 class="title-font sm:text-4xl text-center text-3xl mb-4 font-medium text-gray-900">Popular Topics to learn</h1>
     <div className='slicker-div mt-5'>
   <Slider {...settings}>

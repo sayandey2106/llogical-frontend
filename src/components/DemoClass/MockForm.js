@@ -11,23 +11,24 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import swal from "sweetalert";
-export default function DemoClass() {
- 
+export default function MockForm() {
+
   const [grade, setGrade] = useState("9");
+
   const submitForm = () => {
     emailjs
       .sendForm(
-        "service_d1bl3tc",
-        "template_u3dkfg9",
+        "service_9n1fvi5",
+        "template_28l5ew7",
         form.current,
-        "Y84W44yMKqpvMmsF7"
+        "nj5KWYvPIekaP8kSr"
       )
       .then(
         (result) => {
           result.text === "OK"
             ? swal({
               title: "Submitted!",
-              text: "Requested trial class successfully!",
+              text: "Requested mock test successfully!",
               icon: "success",
               button: "Ok!",
             })
@@ -44,7 +45,6 @@ export default function DemoClass() {
         }
       );
   };
-
 
   const form = useRef();
 
@@ -63,15 +63,7 @@ export default function DemoClass() {
                 <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
                   Submit Your Details
                 </h2>
-                <p className="mt-2 text-center text-sm text-gray-600">
-                  And{" "}
-                  <p
-                    href="#"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    start your free trial class
-                  </p>
-                </p>
+            
               </div>
               <form
                 ref={form}
@@ -93,20 +85,20 @@ export default function DemoClass() {
                       autoComplete="name"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="John Doe"
+                      placeholder="Name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="mt-1 text-black">
+                    <label htmlFor="password" className="mt-1 text-black">
                       Mobile No
                     </label>
                     <input
                       name="mobile"
                       type="number"
-                      autoComplete="phone number"
+                      autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="10 digit number"
+                      placeholder="Mobile"
                     />
                   </div>
                   <div>
@@ -119,7 +111,7 @@ export default function DemoClass() {
                       type="email"
                       autoComplete="email"
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="emailId@email.com"
+                      placeholder="Email address"
                     />
                   </div>
                   <div className="my-2">
@@ -144,17 +136,14 @@ export default function DemoClass() {
    
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       aria-label="Default select example"
-                      name="course"
+                      name="grade"
                       required
                       onChange={(e) => {
                         setGrade(e.target.value)
                       }}
                     >
-                      <option selected value="7">
-                        7
-                      </option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
+
+                      <option value="9" selected>9</option>
                       <option value="10">10</option>
                     </select>
                   </div>
@@ -168,7 +157,7 @@ export default function DemoClass() {
                       autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="ABC high school"
+                      placeholder="School name"
                     />
                   </div>
                   <div>
@@ -181,7 +170,7 @@ export default function DemoClass() {
                       autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="kolkata 121212"
+                      placeholder="Address"
                     />
                   </div>
                 </div>
@@ -266,7 +255,7 @@ export default function DemoClass() {
                 </div>
 
                 <label htmlFor="date" className=" text-black">
-                Select Preffered Date
+                  Select Date
                 </label>
 
                 <div className="mt-1">
@@ -274,45 +263,26 @@ export default function DemoClass() {
                     id="date"
                     name="date"
                     type="date"
-                    min={new Date().toISOString().split('T')[0]}
+
                     required
                     className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                     placeholder="date"
                   />
                 </div>
                 <div>
-                  <label htmlFor="board" className=" text-black">
-                    Select Preffered Time
+                  <label htmlFor="password" className=" text-black">
+                    Select Time
                   </label>
-                  <select
-                    class="form-select appearance-none
-      block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    aria-label="Default select example"
-                    name="board"
-                    required
-                  >
-                    {/* <option selected value="0">Select Board</option> */}
-                    <option value="4PM-5PM" selected>4PM to 5PM</option>
-                    <option value="5PM-6PM">5PM to 6PM</option>
 
-                    <option value="6PM-7PM">6PM to 7PM</option>
-                    <option value="7PM-8PM">7PM to 8PM</option>
-                    <option value="8PM-9PM">8PM to 9PM</option>
-                    
-                  </select>
+                  <input
+                    id="time"
+                    name="time"
+                    type="time"
+
+                    required
+                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
+                    placeholder="time"
+                  />
                 </div>
 
                 <div>

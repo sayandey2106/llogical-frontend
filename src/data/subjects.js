@@ -3,7 +3,7 @@ export const subjects = [
       id: 1,
       title: 'Physics',
       price: '$59.99',
-      description: 'Learn Physics With Our Great Teachers',
+      description: 'Learn Physics With Our Best Teachers',
       linkImg:"fa-solid fa-magnet" ,
       color: "linear-gradient(to right, #9d50bb, #6e48aa)"
       
@@ -22,7 +22,7 @@ export const subjects = [
       id: 3,
       title: 'Mathematics',
       price: '$59.99',
-      description: 'Learn Mathematics With Our Great Teachers',
+      description: 'Learn Mathematics With Our Best Teachers',
       linkImg:"fa-solid fa-superscript" ,
       color:"linear-gradient(to right, #ad5389, #3c1053)"
     },
@@ -38,7 +38,7 @@ export const subjects = [
       id: 5,
       title: 'Computer',
       price: '$19.99',
-      description: 'Learn Computer With Our Great Teachers',
+      description: 'Learn Computer With Our Best Teachers',
       linkImg:"fa-solid fa-laptop-code"  ,
       color:"linear-gradient(to right, #0f0c29, #302b63, #24243e)"
     },

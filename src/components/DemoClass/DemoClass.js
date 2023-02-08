@@ -7,12 +7,15 @@ import { courseData } from "../../data/course";
 import emailjs from "@emailjs/browser";
 import dayjs from "dayjs";
 import TextField from "@mui/material/TextField";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import "./Form.css"
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import swal from "sweetalert";
+
 export default function DemoClass() {
  
+  const [date, setDate] = useState();
   const [grade, setGrade] = useState("9");
   const submitForm = () => {
     emailjs
@@ -93,7 +96,7 @@ export default function DemoClass() {
                       autoComplete="name"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="John Doe"
+                
                     />
                   </div>
                   <div>
@@ -106,7 +109,7 @@ export default function DemoClass() {
                       autoComplete="phone number"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="10 digit number"
+      
                     />
                   </div>
                   <div>
@@ -119,7 +122,7 @@ export default function DemoClass() {
                       type="email"
                       autoComplete="email"
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="emailId@email.com"
+                 
                     />
                   </div>
                   <div className="my-2">
@@ -150,7 +153,7 @@ export default function DemoClass() {
                         setGrade(e.target.value)
                       }}
                     >
-                      <option selected value="7">
+                      <option  value="7">
                         7
                       </option>
                       <option value="8">8</option>
@@ -168,7 +171,7 @@ export default function DemoClass() {
                       autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="ABC high school"
+                 
                     />
                   </div>
                   <div>
@@ -181,7 +184,7 @@ export default function DemoClass() {
                       autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      placeholder="kolkata 121212"
+                      
                     />
                   </div>
                 </div>
@@ -233,8 +236,8 @@ export default function DemoClass() {
                    
                   </select>
                 </div> */}
-                <div>
-                  <label htmlFor="board" className=" text-black">
+                <div className="">
+                  <label htmlFor="board" className="mt-1 text-black">
                     Select Board
                   </label>
                   <select
@@ -265,20 +268,42 @@ export default function DemoClass() {
                   </select>
                 </div>
 
+              
+                <div className="mt-3">
                 <label htmlFor="date" className=" text-black">
                 Select Preffered Date
                 </label>
 
-                <div className="mt-1">
-                  <input
-                    id="date"
-                    name="date"
-                    type="date"
-                    min={new Date().toISOString().split('T')[0]}
-                    required
-                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                    placeholder="date"
-                  />
+               <LocalizationProvider dateAdapter={AdapterDayjs}>
+  <DatePicker
+    
+    minDate={new Date().toISOString().split('T')[0]}
+    value={date}
+    inputFormat="DD/MM/YYYY"
+    name="date"
+    onChange={(newValue) => {
+      setDate(newValue);
+    }}
+    className="form-select appearance-none
+    block
+    w-full
+    px-3
+    mt-1
+    py-1.5
+    text-base
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding bg-no-repeat
+    border border-solid border-gray-300
+    rounded
+    transition
+    ease-in-out
+    m-0
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+    renderInput={(params) => <TextField {...params} />}
+  />
+</LocalizationProvider>
+          
                 </div>
                 <div>
                   <label htmlFor="board" className=" text-black">
@@ -305,12 +330,10 @@ export default function DemoClass() {
                     required
                   >
                     {/* <option selected value="0">Select Board</option> */}
-                    <option value="4PM-5PM" selected>4PM to 5PM</option>
-                    <option value="5PM-6PM">5PM to 6PM</option>
+                    <option value="4PM-5PM" selected>6 PM to 7:30 PM</option>
+                    <option value="5PM-6PM">8 PM to 9:30 PM</option>
 
-                    <option value="6PM-7PM">6PM to 7PM</option>
-                    <option value="7PM-8PM">7PM to 8PM</option>
-                    <option value="8PM-9PM">8PM to 9PM</option>
+                    
                     
                   </select>
                 </div>

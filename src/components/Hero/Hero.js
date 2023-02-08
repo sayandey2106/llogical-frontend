@@ -23,10 +23,10 @@ export default function Hero() {
     <div>
       <Landing/>
      
-<AboutUs/>
 <Subject/>
       <Courses/>
 <WhyUs/>
+<AboutUs/>
       <Contact/>
     </div>
     {/* hero end */}

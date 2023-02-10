@@ -276,7 +276,7 @@ export default function MockForm() {
     className="form-select appearance-none
     block
     w-full
-    px-3
+
     mt-1
     py-1.5
     text-base

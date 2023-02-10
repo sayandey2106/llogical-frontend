@@ -2,6 +2,11 @@ import React,{useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 import { login } from '../../action/loginAction';
 import {useNavigate} from 'react-router-dom';
+// import { captchaVerify } from '../../action/mobileVerifyAction';
+import {RecaptchaVerifier ,signInWithPhoneNumber } from "firebase/auth";
+import { auth } from "../../config/firebase-config"
+import { getOtp } from '../../action/mobileVerifyAction';
+
 export default function Login() {
 
 
@@ -11,22 +16,28 @@ export default function Login() {
 
 let loginCred = {username,password};
 
+
+
+
 const handleSubmit =()=>{
   console.log("handle login")
-  login(loginCred).then((res)=>{
+  // login(loginCred).then((res)=>{
   
-    if(res.status===200){
-      navigate("/");
-    } 
+  //   if(res.status===200){
+  //     navigate("/");
+  //   } 
    
-  }).catch((err)=>{
-   console.log(err)
-  })
+  // }).catch((err)=>{
+  //  console.log(err)
+  // })
+  // onCaptchaVerify()
 }
+
 
   return (
     <div>
         <section class="h-full gradient-form  md:h-screen">
+          <div id='recaptcha-container'></div>
   <div class="container py-12 px-6 h-full">
     <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
       <div class="xl:w-10/12">
@@ -42,6 +53,7 @@ const handleSubmit =()=>{
                   />
                   <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">we are <b>LLOGICAL</b></h4>
                 </div>
+                <button className='btn btn-primary' onClick={()=>{getOtp("+916291267461")}}>otp</button>
                 <form onSubmit={(e)=>{
                   e.preventDefault()
                   handleSubmit()

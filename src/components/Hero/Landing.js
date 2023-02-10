@@ -14,7 +14,7 @@ export default function Landing() {
 
 
 
-    <div class="relative img h-screen w-full flex items-center justify-center text-left bg-cover bg-center mb-16" >
+    <div  class="relative img w-full flex items-center justify-center text-left bg-cover bg-center " style={{height:"60vh"}} >
       <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
       
       <main class="px-10 lg:px-24 z-10 text-center">

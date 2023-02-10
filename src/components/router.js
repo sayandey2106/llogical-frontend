@@ -28,7 +28,7 @@ export default function Router() {
     <Route exact path="/contact" element={<Contact />}/>      
     <Route exact path="/demo" element={<DemoClass />}/>  
     <Route exact path="/aboutus" element={<AboutUs />}/> 
-    <Route exact path="/register" element={<Register/>}/> 
+    {/* <Route exact path="/register" element={<Register/>}/>  */}
     <Route exact path="/subject" element={<Subject/>}/> 
     <Route exact path="/mocktest" element={<MockForm/>}/> 
     

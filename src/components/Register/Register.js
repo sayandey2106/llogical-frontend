@@ -4,7 +4,21 @@ import { NavLink } from 'react-router-dom'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import OTPInput, { ResendOTP } from "otp-input-react";
-import { getOtp, verifyOtp } from '../../action/mobileVerifyAction';
+import { getOtp } from '../../action/mobileVerifyAction';
+import { register } from '../../action/loginAction';
+import swal from "sweetalert";
+import {useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ClockLoader from "react-spinners/ClockLoader";
+import './Register.css'
+
+const override= {
+  display: "block",
+  margin: "10px auto",
+  borderColor: "red",
+  // position: "fixed"
+};
 export default function Register() {
 
   const [email, setEmail] = useState("");
@@ -18,8 +32,9 @@ export default function Register() {
   const [Type1, setType1] = useState("password");
   const [verify,setVerify]= useState(false);
   const [otpSent,setOtpSent]= useState(false);
-
-
+  const [loader,setLoader]= useState(false);
+  const user ={email,name,mobile,password};
+  const navigate = useNavigate();
   const handleToogle = () => {
     if (Type === "password") {
       setType("text");
@@ -31,23 +46,45 @@ export default function Register() {
       setType1("text");
     } else setType1("password");
   };
-  const onVerificationRqst =()=>{
+  const handleSubmit =(e)=>{
     // && mobile.length()!=10 &&  password.match(/^[A-Za-z]\w{7,14}$/
 var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+e.preventDefault()
       if(password!=confirmPassword){
 
-        alert("password!=confirmPassword")
+ 
         // setOtpDisplay(true)
+      
+          swal({
+            title: "Password not confirmed",
+          text: "password and confirmPassword are not same",
+            icon: "error",
+            button: "Retry",
+          })
       }
    
    
       else if(!password.match(pass )){
-             
-        alert("password not valid");
+
+       
+          swal({
+            title: "Password is not valid!",
+          text: "Password length should be min 7, Use atleast 1 special charector & 1 number",
+            icon: "error",
+            button: "Retry",
+          })
             }
       else{
-              alert("done")
-              setOtpDisplay(true)
+          setLoader(true)
+              register(user).then((res)=>{
+                if(res.message==="Registration Successful!!"){
+                  setLoader(false)
+                  navigate('/login')
+                }
+              }).catch((error)=>{
+                console.log(error)
+              })
+              
             }
           
       
@@ -56,15 +93,24 @@ var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
     }
 
-  const submitOtp =()=>{
-    verifyOtp(otp).then((res)=>{
-      if(res.user){
-
-      setVerify(true)
-      }
-    })
-  }
   
+  function verifyOtp(otp){
+    window.confirmationResult.confirm(otp).then(async(res)=>{
+        // console.log(res);
+        swal({
+          title: "OTP verified!",
+        text: "Now create your account",
+          icon: "success",
+          button: "Ok!",
+        })
+        console.log(res)
+    setVerify(true)
+      
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+  }
 
   return (
     <div>{
@@ -117,6 +163,9 @@ var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
   country={"in"}
   value={mobile}
   onChange={setMobile}
+  
+  className="text-center"
+  
   // localization={'India'}
 />
                   </div>
@@ -125,10 +174,22 @@ var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
                       type="button"
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
+                     
                     onClick={()=>{
-                    setOtpSent(true)
-                    getOtp(mobile)
-                    console.log(mobile)
+                      if(mobile.length===12 ){
+
+                        setOtpSent(true)
+                        getOtp(mobile)
+                        console.log(mobile)
+                      }
+                      else{
+                        swal({
+                          title: "Invalid Phone",
+                        text: "A phone no should have 10 digits.!!",
+                          icon: "error",
+                          button: "Ok!",
+                        })
+                      }
                     }}
                     >Get OTP
                      
@@ -154,7 +215,7 @@ var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
                     onClick={()=>{
-                      submitOtp()
+                      verifyOtp(otp)
                     }}
                     >Submit OTP
                      
@@ -162,8 +223,16 @@ var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
   </div>
 
-                :<form>
+                :<form onSubmit={(e)=>{handleSubmit(e)}}>
                   <h1 class="mb-2 text-2xl text-center">Create Your Free Account</h1>
+                  <ClockLoader
+color="blue"
+loading={loader}
+cssOverride={override}
+size={60}
+aria-label="Loading Spinner"
+data-testid="loader"
+/>
                   <div class="mb-4">
                   <label htmlFor="name" className=" text-black">
                     Name
@@ -236,7 +305,7 @@ var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
                       type={Type1}
                       required
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput1"
+                      id="exampleFormControlInput5"
                       placeholder="Confirm Password"
                       value={confirmPassword}
                       onChange={(e)=>{
@@ -257,29 +326,15 @@ var pass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
                 </span>
                 </div>
                   </div>
-                  <div class={otpDisplay===false ? "hidden" : "mb-4"}>
-                  <label htmlFor="password" className=" text-black">
-                    Enter OTP
-                  </label>
-                    <input
-                      type="number"
-                      class="mb-4 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput1"
-                      placeholder="Enter OTP"
-                    />
-                  </div>
+                  
                   <div class="text-center pt-1 mb-12 pb-1">
                     <button
-                      class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded"
-                      type="button"
+                      class= "inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded" 
+                      type="submit"
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
-                    onClick={()=>{
-                      onVerificationRqst()
-                    }}
-                    >{
-                      otpDisplay===false ?"verify mobile":" Verify OTP"
-                    }
+                   
+                    >Register
                      
                     </button>
                    

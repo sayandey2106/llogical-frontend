@@ -21,18 +21,35 @@ export default function Router() {
 
 <Header/>
 {/* <Contact/> */}
+  {
+    !localStorage.getItem("auth_token") ?
 <Routes>
+  
     <Route exact path="/" element={<Hero />}/>
-    {/* <Route exact path="/login" element={<Login />}/> */}
+    <Route exact path="/login" element={<Login />}/>
     <Route exact path="/courses" element={<Courses />}/>
     <Route exact path="/contact" element={<Contact />}/>      
     <Route exact path="/demo" element={<DemoClass />}/>  
     <Route exact path="/aboutus" element={<AboutUs />}/> 
-    {/* <Route exact path="/register" element={<Register/>}/>  */}
+    <Route exact path="/register" element={<Register/>}/> 
     <Route exact path="/subject" element={<Subject/>}/> 
     <Route exact path="/mocktest" element={<MockForm/>}/> 
-    
       </Routes>
+
+      :
+      <Routes>
+  
+    <Route exact path="/" element={<Hero />}/>
+
+    <Route exact path="/courses" element={<Courses />}/>
+    <Route exact path="/contact" element={<Contact />}/>      
+    <Route exact path="/demo" element={<DemoClass />}/>  
+    <Route exact path="/aboutus" element={<AboutUs />}/> 
+  
+    <Route exact path="/subject" element={<Subject/>}/> 
+    <Route exact path="/mocktest" element={<MockForm/>}/> 
+      </Routes>
+  }
     
       <Footer/>
     </BrowserRouter>

@@ -1,5 +1,8 @@
 import {RecaptchaVerifier ,signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../config/firebase-config";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import swal from "sweetalert";
 
 
 
@@ -31,20 +34,31 @@ function onCaptchaVerify(){
       // SMS sent. Prompt user to type the code from the message, then sign the
       // user in with confirmationResult.confirm(code).
       window.confirmationResult = confirmationResult;
-      alert("otp sended")
+     
+        swal({
+          title: "OTP sended!",
+        
+          icon: "success",
+          button: "Ok!",
+        })
       // ...
     }).catch((error) => {
       // Error; SMS not sent
-      alert(error)
+      swal({
+        title: error,
+      
+        icon: "error",
+        button: "retry",
+      })
       // ...
     });
   }
 
   export function verifyOtp(otp){
     window.confirmationResult.confirm(otp).then(async(res)=>{
-        console.log(res);
+        // console.log(res);
         alert("verified");
-        return res
+      
     }).catch((err)=>{
       console.log(err)
     })

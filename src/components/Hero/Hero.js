@@ -27,7 +27,9 @@ export default function Hero() {
       <Courses/>
 <WhyUs/>
 <AboutUs/>
-      <Contact/>
+
+  <Contact/>
+
     </div>
     {/* hero end */}
     </section>

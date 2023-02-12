@@ -8,6 +8,7 @@ import './Header.css'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import LoginBtn from '../LoginBtn/LoginBtn';
 
 
 
@@ -100,6 +101,7 @@ export default function Header() {
                         {item.name}
                       </NavLink>
                     ))}
+                   <LoginBtn/>
                   </div>
                 </div>
               </div>
@@ -188,6 +190,7 @@ export default function Header() {
                   {item.name}
                 </NavLink>
               ))}
+                 <LoginBtn/>
             </div>
           </Disclosure.Panel>
         </>

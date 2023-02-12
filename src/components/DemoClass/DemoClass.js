@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useRef,useEffect, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
+import { useNavigate } from "react-router-dom";
 import { submitForm } from "../../action/form";
 import { createLink } from "./zoomLink";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
@@ -17,6 +18,7 @@ export default function DemoClass() {
  
   const [date, setDate] = useState();
   const [grade, setGrade] = useState("9");
+  const navigate = useNavigate()
   const submitForm = () => {
     emailjs
       .sendForm(
@@ -48,6 +50,18 @@ export default function DemoClass() {
       );
   };
 
+  useEffect(() => {
+    if(!localStorage.getItem('auth_token')){
+      swal({
+        title: "Please login !",
+      text: "Please login to book free demo class! If you don't have any account, please create it!",
+        icon: "error",
+        button: "Close",
+      })
+      navigate('/login');
+    }
+  }, [])
+  
 
   const form = useRef();
 
@@ -163,7 +177,7 @@ export default function DemoClass() {
                   </div>
                   <div>
                     <label htmlFor="password" className="mt-1 text-black">
-                      Schhol Name
+                      School Name
                     </label>
                     <input
                       name="school"

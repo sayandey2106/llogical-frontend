@@ -1,22 +1,36 @@
 import React,{useRef} from 'react'
 import Container from 'react-bootstrap/esm/Container'
 import swal from "sweetalert";
+import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 export default function Contact () {
 
 
     const form = useRef();
+    const navigate = useNavigate();
 
     const sendEmail = (e) => {
       e.preventDefault();
+
+      if(localStorage.getItem('auth_token')){
   
-      emailjs.sendForm("service_d1bl3tc","template_17fefup", form.current, "Y84W44yMKqpvMmsF7")
-        .then((result) => {
+      emailjs.sendForm("service_d1bl3tc","template_17fefup", form.current, "Y84W44yMKqpvMmsF7").then((result) => {
             result.text==="OK"? swal({title:"Submitted!",text:"Thanks for your feedback",icon:"success",button:"Ok!" }) :swal({title:"Failed!",text:"Please retry again!",icon:"error",button:"Retry" })
             console.log(result.text);
         }, (error) => {
             console.log(error.text);
         });
+
+      }
+      else{
+          navigate('/login')
+          swal({
+            title: "Please login to contact us",
+          text: "Please login to contact us! If you don't have any account, please create it!",
+            icon: "error",
+            button: "Close",
+          })
+      }
     };
   
   return (

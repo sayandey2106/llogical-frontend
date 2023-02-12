@@ -1,6 +1,7 @@
 import UNIVERSAL from "../config/config.js"
 import swal from "sweetalert";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const  login = async (login) =>{
 
@@ -32,8 +33,8 @@ body : JSON.stringify(login)
       }
       else{
         swal({
-            title: "Failed!",
-            text: data.message,
+            title: "Login Failed!",
+            text:`${data.data} Please create an account first` ,
             icon: "error",
             button: "Retry",
           })
@@ -44,10 +45,13 @@ body : JSON.stringify(login)
     return (data)
 }
 
-export const  register = async (register) =>{
+export const  register = async (user) =>{
 
-  console.log("login started")
-const response = await fetch(`${UNIVERSAL.BASEURL}/login`, {
+  let phn = user.mobile.substring(2);
+
+  console.log("register started")
+  console.log(user)
+const response = await fetch(`${UNIVERSAL.BASEURL}/users`, {
    method :"POST",
    headers : {
        "content-type": "application/json",
@@ -56,21 +60,28 @@ const response = await fetch(`${UNIVERSAL.BASEURL}/login`, {
      "conversation-id": UNIVERSAL.CONID,
      },
 
-body : JSON.stringify(login)
+body : JSON.stringify({
+  userFullName:user.name,
+        userEmail: user.email,
+        userPassword: user.password,
+        userPhoneNo: phn,
+    
+       
+})
 
 });
 
    const data = await response.json();
  
-     if(data.status===200){
+     if(data.message==="Registration Successful!!"){
        swal({
-           title: "Logged In!",
-           text: data.message,
+           title: "Registration Successful!!",
+           text: "You have sussessfully created an account!",
            icon: "success",
            button: "Ok!",
          })
          
-       localStorage.setItem('auth_token',data.token)
+      
      }
      else{
        swal({

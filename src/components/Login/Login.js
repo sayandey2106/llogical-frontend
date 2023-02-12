@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect,CSSProperties} from 'react'
 import { NavLink } from 'react-router-dom'
 import { login } from '../../action/loginAction';
 import {useNavigate} from 'react-router-dom';
@@ -6,12 +6,20 @@ import {useNavigate} from 'react-router-dom';
 import {RecaptchaVerifier ,signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../../config/firebase-config"
 import { getOtp } from '../../action/mobileVerifyAction';
+import ClockLoader from "react-spinners/ClockLoader";
 
+const override= {
+  display: "block",
+  margin: "10px auto",
+  borderColor: "red",
+  // position: "fixed"
+};
 export default function Login() {
 
 
   const [username, setUsername]=useState("");
   const [password, setPassword]=useState("");
+  const [loader, setLoader]=useState(false);
   const navigate = useNavigate()
 
 let loginCred = {username,password};
@@ -19,18 +27,20 @@ let loginCred = {username,password};
 
 
 
+
 const handleSubmit =()=>{
   console.log("handle login")
-  // login(loginCred).then((res)=>{
+setLoader(true)
+  login(loginCred).then((res)=>{
+    setLoader(false)
   
-  //   if(res.status===200){
-  //     navigate("/");
-  //   } 
-   
-  // }).catch((err)=>{
-  //  console.log(err)
-  // })
-  // onCaptchaVerify()
+    if(res.status===200){
+      navigate("/");
+    } 
+  }).catch((err)=>{
+   console.log(err)
+  })
+
 }
 
 
@@ -39,12 +49,16 @@ const handleSubmit =()=>{
         <section class="h-full gradient-form  md:h-screen">
           <div id='recaptcha-container'></div>
   <div class="container py-12 px-6 h-full">
+    
     <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
       <div class="xl:w-10/12">
         <div class="block bg-white shadow-lg rounded-lg">
           <div class="lg:flex lg:flex-wrap g-0">
             <div class="lg:w-6/12 px-8 md:px-12 pt-4">
               <div class="md:p-12 md:mx-6">
+              
+
+  
                 <div class="text-center">
                   <img
                     class="mx-auto w-24"
@@ -53,12 +67,20 @@ const handleSubmit =()=>{
                   />
                   <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">we are <b>LLOGICAL</b></h4>
                 </div>
-                <button className='btn btn-primary' onClick={()=>{getOtp("+916291267461")}}>otp</button>
+             
                 <form onSubmit={(e)=>{
                   e.preventDefault()
                   handleSubmit()
                   }}>
-                  <p class="mb-4 text-xl text-center">Please login to your account</p>
+                  <p class="mb-2 text-xl text-center">Please login to your account</p>
+                  <ClockLoader
+color="blue"
+loading={loader}
+cssOverride={override}
+size={60}
+aria-label="Loading Spinner"
+data-testid="loader"
+/>
                   <div class="mb-4">
                     <input
                       type="text"
@@ -83,6 +105,8 @@ const handleSubmit =()=>{
                       }}
                     />
                   </div>
+                  
+
                   <div class="text-center pt-1 mb-12 pb-1">
                     <button
                       class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded"
@@ -106,7 +130,7 @@ const handleSubmit =()=>{
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
                       >
-                     Sign Up
+                     Create Account
                     </button>
                       </NavLink>
                   </div>

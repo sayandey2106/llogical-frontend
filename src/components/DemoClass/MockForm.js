@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef,useEffect, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
 import { submitForm } from "../../action/form";
 import { createLink } from "./zoomLink";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { courseData } from "../../data/course";
 import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -18,7 +19,7 @@ export default function MockForm() {
 
   const [grade, setGrade] = useState("9");
   const [date, setDate] = useState();
-
+  const navigate = useNavigate()
   const submitForm = () => {
     emailjs
       .sendForm(
@@ -49,7 +50,17 @@ export default function MockForm() {
         }
       );
   };
-
+  useEffect(() => {
+    if(!localStorage.getItem('auth_token')){
+      swal({
+        title: "Please login !",
+      text: "Please login to request mock tests! If you don't have any account, please create it!",
+        icon: "error",
+        button: "Close",
+      })
+      navigate('/login');
+    }
+  }, [])
   const form = useRef();
 
   return (
@@ -153,7 +164,7 @@ export default function MockForm() {
                   </div>
                   <div>
                     <label htmlFor="password" className="mt-1 text-black">
-                      Schhol Name
+                      School Name
                     </label>
                     <input
                       name="school"

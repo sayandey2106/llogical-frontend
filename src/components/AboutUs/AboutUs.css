@@ -175,6 +175,10 @@
   .sol_card_top_3 {
     position: relative;
     top: -3rem;
+    
+  }
+  .course-container{
+    padding: 0 60px;
   }
   .our_solution_category {
     
@@ -187,5 +191,16 @@
 
         height: 450px;
     }
+    .course-container{
+      padding: 0 100px;
+    }
   
 }
+
+
+
+.course-container{
+  padding: 0 150px;
+}
+
+

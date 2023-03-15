@@ -1,6 +1,7 @@
 import UNIVERSAL from "../config/config.js"
 import swal from "sweetalert";
 import { toast } from 'react-toastify';
+import jwt_decode from "jwt-decode";
 import 'react-toastify/dist/ReactToastify.css';
 
 export const  login = async (login) =>{
@@ -30,6 +31,10 @@ body : JSON.stringify(login)
           })
           
         localStorage.setItem('auth_token',data.token)
+       let decode = jwt_decode(data.token)
+       localStorage.setItem('user_email',decode.result.email)
+       localStorage.setItem('user_phone',decode.result.phoneNo)
+        console.log(decode)
       }
       else{
         swal({

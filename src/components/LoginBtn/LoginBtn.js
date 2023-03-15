@@ -11,7 +11,7 @@ export default function LoginBtn() {
         <NavLink to="/login">
         <button href="#" class="p-2 m-1 btn btn-sm btn-primary" >Login <i class="fa-solid fa-right-to-bracket mx-2"></i></button></NavLink>
 :  <button href="#" class="p-2 m-1 btn btn-sm" onClick={()=>{localStorage.removeItem('auth_token') 
-navigate('/login')} } ><i class="fa-solid fa-right-from-bracket mx-2"></i>Logout</button>
+navigate('/')} } ><i class="fa-solid fa-right-from-bracket mx-2"></i>Logout</button>
     }
 
     </div>

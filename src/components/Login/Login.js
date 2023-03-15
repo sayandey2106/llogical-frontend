@@ -25,9 +25,6 @@ export default function Login() {
 let loginCred = {username,password};
 
 
-
-
-
 const handleSubmit =()=>{
   console.log("handle login")
 setLoader(true)
@@ -42,10 +39,17 @@ setLoader(true)
   })
 
 }
+useEffect(() => {
+  window.scrollTo(0, 0)
+  if(localStorage.getItem('auth_token')){
+    navigate('/')
+  }
+}, [])
+
 
 
   return (
-    <div>
+    <div> 
         <section class="h-full gradient-form  md:h-screen">
           <div id='recaptcha-container'></div>
   <div class="container py-12 px-6 h-full">
@@ -86,7 +90,7 @@ data-testid="loader"
                       type="text"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
-                      placeholder="Username"
+                      placeholder="Email or Phone No"
                       value={username}
                       onChange={(e)=>{
                         setUsername(e.target.value);
@@ -118,7 +122,7 @@ data-testid="loader"
                       Log in
                     </button>
                    
-                    <a class="text-gray-500" href="#!">Forgot password?</a>
+                    <a class="text-gray-500 " disabled href="#!">Forgot password?</a>
                   </div>
                   <div class="flex items-center justify-between pb-6">
                     <p class="mb-0 mr-2">Don't have an account?</p>

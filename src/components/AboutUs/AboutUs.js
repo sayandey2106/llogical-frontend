@@ -1,7 +1,12 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 import "./AboutUs.css"
 export default function AboutUs() {
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div class="container " height="100vh">
      

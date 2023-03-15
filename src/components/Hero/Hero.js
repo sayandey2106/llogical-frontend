@@ -10,6 +10,7 @@ import Landing from './Landing';
 import AboutUs from '../AboutUs/AboutUs';
 import Subject from '../Subject/Subject';
 import WhyUs from '../WhyUs/WhyUs';
+import JoinUs from '../Mock/JoinUs';
 export default function Hero() {
   return (
     <section >
@@ -25,6 +26,7 @@ export default function Hero() {
      
 <Subject/>
       <Courses/>
+      <JoinUs/>
 <WhyUs/>
 <AboutUs/>
 

@@ -1,4 +1,4 @@
-import React,{useRef} from 'react'
+import React,{useRef, useEffect} from 'react'
 import Container from 'react-bootstrap/esm/Container'
 import swal from "sweetalert";
 import { useNavigate } from 'react-router-dom';
@@ -32,6 +32,10 @@ export default function Contact () {
           })
       }
     };
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
   
   return (
     <div>

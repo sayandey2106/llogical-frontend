@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Subject.css"
 import { subjects } from '../../data/subjects';
+import { Container } from 'react-bootstrap';
 export default function Subject() {
 
 const [size, setSize] = useState(subjects.length)
@@ -47,7 +48,7 @@ const [size, setSize] = useState(subjects.length)
   return (
     <section className='topics my-6 '>
   <h1 class="title-font sm:text-4xl text-center text-3xl mb-4 font-medium text-gray-900">Popular Topics to learn</h1>
-    <div className='slicker-div mt-5'>
+    {/* <div className='slicker-div mt-5'>
   <Slider {...settings}>
         {subjects.map((item) => (
           <div >
@@ -66,7 +67,59 @@ const [size, setSize] = useState(subjects.length)
         </div>
         ))}
         </Slider>
-    </div>
+    </div> */}
+
+<section class="categories-crd-sec-v2 py-8"> 
+        <div class=""> 
+        <Container>
+                
+          <div class="sec-content"> 
+            <div class="row categories-crd-list justify-content-center text-center"> 
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-gray" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/pantone.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">Design</h3>
+                  </div></a></div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-orange" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/monitor.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">Development</h3>
+                  </div></a></div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-blue" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/shake.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">IT &amp; Software</h3>
+                  </div></a></div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-green" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/briefcase.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">Business</h3>
+                  </div></a></div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-green" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/volume-up.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">Marketing</h3>
+                  </div></a></div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-blue" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/camera.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">Photography</h3>
+                  </div></a></div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-orange" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/heart.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">Health &amp; Care</h3>
+                  </div></a></div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 mt-4 text-center"><a class="categories-crd categories-crd-gray" href="courses.html">
+                  <div class="categories-crd-img-wrap d-flex align-items-center justify-content-center m-auto"><img class="categories-crd-img" src="http://skilify.theuxuidesigner.com/images/svg/cast.svg" alt="Image Description"/></div>
+                  <div class="crd-content">
+                    <h3 class="card-title mt-3 mb-2">Technology</h3>
+                  </div></a></div>
+            </div>
+          </div>
+          </Container>
+        </div>
+      </section>
     </section>
     )
   }

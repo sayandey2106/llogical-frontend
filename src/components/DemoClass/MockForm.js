@@ -13,42 +13,55 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import "./Form.css"
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import swal from "sweetalert";
+import { createMockTest } from "../../action/mockTestAction";
 
 
 export default function MockForm() {
 
   const [grade, setGrade] = useState("9");
-  const [date, setDate] = useState();
-  const navigate = useNavigate()
+  const [date, setDate] = useState("");
+  const [name,setName]= useState("");
+  const [address, setAddress] = useState();
+  const [time, setTime]=useState("4PM-5PM");
+  const [school, setSchool]=useState();
+  const [board, setBoard]=useState("CBSE");
+
+  let dateString = date.toString()
+  const test ={dateString,time,address,school,board,grade,name}
+
+  const navigate = useNavigate();
   const submitForm = () => {
-    emailjs
-      .sendForm(
-        "service_9n1fvi5",
-        "template_28l5ew7",
-        form.current,
-        "nj5KWYvPIekaP8kSr"
-      )
-      .then(
-        (result) => {
-          result.text === "OK"
-            ? swal({
-              title: "Submitted!",
-              text: "Requested mock test successfully!",
-              icon: "success",
-              button: "Ok!",
-            })
-            : swal({
-              title: "Failed!",
-              text: "Please retry!",
-              icon: "error",
-              button: "Retry",
-            });
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    // emailjs
+      // .sendForm(
+      //   "service_9n1fvi5",
+      //   "template_28l5ew7",
+      //   form.current,
+      //   "nj5KWYvPIekaP8kSr"
+      // )
+      // .then(
+      //   (result) => {
+      //     result.text === "OK"
+      //       ? swal({
+      //         title: "Submitted!",
+      //         text: "Requested mock test successfully!",
+      //         icon: "success",
+      //         button: "Ok!",
+      //       })
+      //       : swal({
+      //         title: "Failed!",
+      //         text: "Please retry!",
+      //         icon: "error",
+      //         button: "Retry",
+      //       });
+      //     console.log(result.text);
+      //   },
+      //   (error) => {
+      //     console.log(error.text);
+      //   }
+      // );
+
+
+      createMockTest(test)
   };
   useEffect(() => {
     if(!localStorage.getItem('auth_token')){
@@ -92,7 +105,7 @@ export default function MockForm() {
                 <div className="-space-y-px rounded-md shadow-sm">
                   <div>
                     <label htmlFor="email-address" className="mt-1 text-black">
-                      Name
+                      Student Name
                     </label>
                     <input
                       name="name"
@@ -100,10 +113,12 @@ export default function MockForm() {
                       autoComplete="name"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      
+                      onChange={(e)=>{
+                        setName(e.target.value)
+                      }}
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label htmlFor="password" className="mt-1 text-black">
                       Mobile No
                     </label>
@@ -115,8 +130,8 @@ export default function MockForm() {
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                      
                     />
-                  </div>
-                  <div>
+                  </div> */}
+                  {/* <div>
                     <label htmlFor="email" className="mt-1 text-black">
                       Email
                     </label>
@@ -128,7 +143,7 @@ export default function MockForm() {
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
                      
                     />
-                  </div>
+                  </div> */}
                   <div className="my-2">
                     <label htmlFor="grade" className="mt-1 text-black">
                       Select Grade
@@ -169,23 +184,27 @@ export default function MockForm() {
                     <input
                       name="school"
                       type="text"
-                      autoComplete="current-password"
+                      autoComplete="school name"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                    
+                      onChange={(e)=>{
+                        setSchool(e.target.value);
+                      }}
                     />
                   </div>
                   <div>
                     <label htmlFor="address" className="mt-1 text-black">
                       Address
                     </label>
-                    <input
+                    <textarea
                       name="address"
                       type="text"
-                      autoComplete="current-password"
+                      autoComplete="address"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                    
+                      onChange={(e)=>{
+                        setAddress(e.target.value)
+                      }}
                     />
                   </div>
                 </div>
@@ -260,6 +279,9 @@ export default function MockForm() {
                     aria-label="Default select example"
                     name="board"
                     required
+                    onChange={(e)=>{
+                      setBoard(e.target.value)
+                    }}
                   >
                     {/* <option selected value="0">Select Board</option> */}
                     <option value="CBSE">CBSE</option>
@@ -279,11 +301,13 @@ export default function MockForm() {
     
     minDate={new Date().toISOString().split('T')[0]}
     value={date}
+    
     inputFormat="DD/MM/YYYY"
     name="date"
     onChange={(newValue) => {
       setDate(newValue);
     }}
+
     className="form-select appearance-none
     block
     w-full
@@ -329,14 +353,27 @@ export default function MockForm() {
                     aria-label="Default select example"
                     name="board"
                     required
+                    onChange={(e)=>{
+                      setTime(e.target.value)
+                    }}
                   >
                     {/* <option selected value="0">Select Board</option> */}
-                    <option value="4PM-5PM" >4PM to 5PM</option>
-                    <option value="5PM-6PM">5PM to 6PM</option>
+                    <option value="4PM-5PM"  selected  onChange={(e)=>{
+                      setTime(e.target.value)
+                    }}>4PM to 5PM</option>
+                    <option value="5PM-6PM"    onChange={(e)=>{
+                      setTime(e.target.value)
+                    }}>5PM to 6PM</option>
 
-                    <option value="6PM-7PM">6PM to 7PM</option>
-                    <option value="7PM-8PM">7PM to 8PM</option>
-                    <option value="8PM-9PM">8PM to 9PM</option>
+                    <option value="6PM-7PM"    onChange={(e)=>{
+                      setTime(e.target.value)
+                    }}>6PM to 7PM</option>
+                    <option value="7PM-8PM"    onChange={(e)=>{
+                      setTime(e.target.value)
+                    }}>7PM to 8PM</option>
+                    <option value="8PM-9PM"    onChange={(e)=>{
+                      setTime(e.target.value)
+                    }}>8PM to 9PM</option>
                     
                   </select>
                 </div>

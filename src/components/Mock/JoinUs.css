@@ -1,0 +1,86 @@
+.mock-facility-card{
+    height: 250px;
+    width: 250px;
+    justify-content: center;
+    padding: 40px;
+    margin: 6px;
+    border: 0;
+
+    
+}
+
+.mock-facility-card img {
+    height: 100%;
+    width: 100px;
+    margin:10px auto;
+}
+.mock{
+
+        background: url(https://static.pbcdn.in/cdn/images/home-v1/left-bg.png) left top no-repeat,url(https://static.pbcdn.in/cdn/images/home-v1/right-bg.png) right top no-repeat;
+        min-height: 510px;
+        z-index: 10;
+    
+}
+
+.sec-brief {
+    /* font-size: 20px; */
+    color: #5F5982;
+}
+.know-about-img {
+    border-radius: 0  40% 0 0;
+    /* position: relative; */
+    margin-top: 50px;
+  }
+  
+  .know-about-img img {
+    border-radius: 0  40% 0 0;
+    border: 5px solid #F56962;
+    padding: 5px 3px 5px 10px;
+  }
+  
+ 
+  
+  /* apply as a teacger */
+
+  .apply-crd-sec {
+    position: relative;
+  }
+  
+  .apply-crd-sec::before, .apply-crd-sec::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 250px;
+  }
+  
+  .apply-crd-sec::before {
+    top: 0;
+    right: 0;
+    background: url(	http://skilify.theuxuidesigner.com/images/svg/dots-pattern-gray-vertical.svg) no-repeat;
+  }
+  
+  .apply-crd-sec::after {
+    bottom: 0;
+    left: 0;
+    background: url(http://skilify.theuxuidesigner.com/images/svg/dots-pattern-pink.svg) no-repeat;
+  }
+  
+  .apply-crd-list {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .apply-crd {
+    padding: 25px 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+  }
+  
+  .apply-crd:hover {
+    box-shadow: 0 0 35px 1px #f5696270;
+  }
+  
+  .apply-crd-img img {
+    border-radius: 50%;
+  }

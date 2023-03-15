@@ -13,43 +13,53 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import "./Form.css"
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import swal from "sweetalert";
+import { createDemoClass } from "../../action/demoClassAction";
 
 export default function DemoClass() {
  
-  const [date, setDate] = useState();
-  const [grade, setGrade] = useState("9");
+ 
   const navigate = useNavigate()
   const submitForm = () => {
-    emailjs
-      .sendForm(
-        "service_d1bl3tc",
-        "template_u3dkfg9",
-        form.current,
-        "Y84W44yMKqpvMmsF7"
-      )
-      .then(
-        (result) => {
-          result.text === "OK"
-            ? swal({
-              title: "Submitted!",
-              text: "Requested trial class successfully!",
-              icon: "success",
-              button: "Ok!",
-            })
-            : swal({
-              title: "Failed!",
-              text: "Please retry!",
-              icon: "error",
-              button: "Retry",
-            });
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+    // emailjs
+    //   .sendForm(
+    //     "service_d1bl3tc",
+    //     "template_u3dkfg9",
+    //     form.current,
+    //     "Y84W44yMKqpvMmsF7"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       result.text === "OK"
+    //         ? swal({
+    //           title: "Submitted!",
+    //           text: "Requested trial class successfully!",
+    //           icon: "success",
+    //           button: "Ok!",
+    //         })
+    //         : swal({
+    //           title: "Failed!",
+    //           text: "Please retry!",
+    //           icon: "error",
+    //           button: "Retry",
+    //         });
+    //       console.log(result.text);
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
 
+    createDemoClass(demo)
+  };
+  const [grade, setGrade] = useState("9");
+  const [date, setDate] = useState("");
+  const [name,setName]= useState("");
+  const [address, setAddress] = useState();
+  const [time, setTime]=useState("4PM-5PM");
+  const [school, setSchool]=useState();
+  const [board, setBoard]=useState("CBSE");
+  let dateString = date.toString()
+  const demo ={dateString,time,address,school,board,grade,name}
   useEffect(() => {
     if(!localStorage.getItem('auth_token')){
       swal({
@@ -110,35 +120,13 @@ export default function DemoClass() {
                       autoComplete="name"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
+                  onChange={(e)=>{
+                    setName(e.target.value)
+                  }}
+                    />
+                  </div>
+              
                 
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="mt-1 text-black">
-                      Mobile No
-                    </label>
-                    <input
-                      name="mobile"
-                      type="number"
-                      autoComplete="phone number"
-                      required
-                      className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-      
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="mt-1 text-black">
-                      Email
-                    </label>
-                    <input
-                      id="email-address"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                 
-                    />
-                  </div>
                   <div className="my-2">
                     <label htmlFor="grade" className="mt-1 text-black">
                       Select Grade
@@ -182,10 +170,12 @@ export default function DemoClass() {
                     <input
                       name="school"
                       type="text"
-                      autoComplete="current-password"
+                      autoComplete="school name"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                 
+                      onChange={(e)=>{
+                        setSchool(e.target.value)
+                      }}
                     />
                   </div>
                   <div>
@@ -195,10 +185,12 @@ export default function DemoClass() {
                     <input
                       name="address"
                       type="text"
-                      autoComplete="current-password"
+                      autoComplete="address"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white"
-                      
+                      onChange={(e)=>{
+                        setAddress(e.target.value)
+                      }}
                     />
                   </div>
                 </div>
@@ -273,6 +265,9 @@ export default function DemoClass() {
                     aria-label="Default select example"
                     name="board"
                     required
+                    onChange={(e)=>{
+                      setBoard(e.target.value)
+                    }}
                   >
                     {/* <option selected value="0">Select Board</option> */}
                     <option value="CBSE">CBSE</option>
@@ -343,6 +338,9 @@ export default function DemoClass() {
                     aria-label="Default select example"
                     name="board"
                     required
+                    onChange={(e)=>{
+                      setTime(e.target.value)
+                    }}
                   >
                     {/* <option selected value="0">Select Board</option> */}
                     <option value="4PM-5PM" selected>6 PM to 7:30 PM</option>

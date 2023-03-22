@@ -54,7 +54,7 @@ export default function Courses() {
         <button class="py-1 px-4 focus:outline-none">Class 12 </button>
       </div> */}
           </div>
-          <div class="flex items-center justify-center my-3">
+          {/* <div class="flex items-center justify-center my-3">
             <div class="inline-flex  focus:shadow-lg" role="group">
               <button type="button" style={{ wordSpacing: "6px" }} className={toggle === 0 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
                 : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl tracking-wider  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
@@ -67,7 +67,7 @@ export default function Courses() {
 
               >ALL COURSES</button>
             </div>
-          </div>
+          </div> */}
           {/* <div class="flex items-center justify-center m-3">
   <div class="inline-flex  focus:shadow-lg " role="group">
     <button type="button" className={toggle===1?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
@@ -117,7 +117,7 @@ export default function Courses() {
   </div>
   </div> */}
 
-          <div class="flex items-center justify-center m-3">
+          {/* <div class="flex items-center justify-center m-3">
             <div class="inline-flex  focus:shadow-lg " role="group">
               <button type="button" className={toggle === 7 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
                 : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
@@ -150,10 +150,10 @@ export default function Courses() {
                   toggleTab(10)
                 }}>Class 10</button>
             </div>
-          </div>
+          </div> */}
 
 
-          <div class="row justify-content-center text-center px-16">
+          <div class="row justify-content-center text-center">
             {
               item.map((data) => {
                 return (
@@ -163,12 +163,11 @@ export default function Courses() {
                   <div class="col-lg-4 col-md-6 col-sm-12  mt-4">
                       <div class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
 		<a href="#">
-			<img class="rounded-t-lg p-8" src="http://skilify.theuxuidesigner.com/images/webp/crd-img.webp" alt="product image"/>
+			<img class="rounded-t-lg p-8" src={data.image} style={{height:"300px"}} />
         </a>
-			<div class="px-5 pb-5">
+			<div class="px-2 pb-5">
 				<a href="#">
-					<h3 class="text-gray-900 font-semibold text-lg tracking-tight dark:text-white">Apple Watch Series 7
-						GPS, Aluminium Case, Starlight Sport</h3>
+					<h3 class="text-gray-900 font-semibold text-lg tracking-tight dark:text-white">{data.name}</h3>
 				</a>
 				<div class="flex items-center text-center mt-2.5 mb-3 px-16">
 					<svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
@@ -203,11 +202,11 @@ export default function Courses() {
 					</svg>
 					<span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
 				</div>
-					<span class="text-3xl mx-3  font-bold text-gray-900 dark:text-white">$599</span>
-				<div class="flex items-center mt-3 justify-between">
+					<span class="text-3xl mx-3  font-bold text-gray-900 dark:text-white">{data.price}</span>
+				<div class="flex items-center mt-3 justify-content-center">
           <button 
                
-               class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
+               class="inline-block px-3 m-1 py-2.5 text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
                
                data-mdb-ripple="true"
                data-mdb-ripple-color="light"
@@ -218,14 +217,14 @@ export default function Courses() {
                        </button>
                        <button 
                
-               class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r hover:from-blue-400 hover:to-blue-800 from-pink-500 to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
+               class="inline-block px-2 py-2.5 m-1 text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r hover:from-blue-400 hover:to-blue-800 from-pink-500 to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
                
                data-mdb-ripple="true"
                data-mdb-ripple-color="light"
           
                >
                
-                Know More
+                Demo Class
                        </button>
 				</div>
 			</div>

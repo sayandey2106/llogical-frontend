@@ -88,17 +88,17 @@ export default function JoinUs() {
                   </div>
                   <div class="apply-crd-content col-lg-10 mt-4 mt-lg-0">
                     <h3 class="text-4xl mb-2">Become a trainer</h3>
-                    <p class="card-text mt-1 mb-4">Teach what you love. Coursector gives you the tools to create a course.</p>
+                    <p class="card-text mt-1 mb-4"></p>
                   </div>
                   <ul class="know-about-points mb-5"> 
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Detail description of each course</h6>
+                  <h6 class="card-text text-medium-bold">Flexible Timing for teachers</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Easy to understand language</h6>
+                  <h6 class="card-text text-medium-bold">A higher pay to our educators who serve LLOGICAL</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Simple and easy to learn courses.</h6>
+                  <h6 class="card-text text-medium-bold">Teach what you love. We will give you the tools to create a course.</h6>
                 </li>
               </ul>
               <a class="btn btn-primary" href="register.html">Apply as trainer</a>
@@ -113,17 +113,17 @@ export default function JoinUs() {
                   </div>
                   <div class="apply-crd-content col-lg-10 mt-4 mt-lg-0">
                     <h1 class="mb-2 text-4xl">Are you a school ??</h1> 
-                    <p class="card-text mt-1 mb-4">Get unlimited access to 3,000+ of Coursector’s top courses for your team</p>
+                    <p class="card-text mt-1 mb-4"></p>
                   </div>
                   <ul class="know-about-points mb-5"> 
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Detail description of each course</h6>
+                  <h6 class="card-text text-medium-bold">Get access to top courses for your team</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Easy to understand language</h6>
+                  <h6 class="card-text text-medium-bold">Get affordable courses fees for your students</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Simple and easy to learn courses.</h6>
+                  <h6 class="card-text text-medium-bold">Offline handsone experiments for your students</h6>
                 </li>
               </ul>
               <button class="btn btn-primary" >Apply as school</button>

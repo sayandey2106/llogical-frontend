@@ -27,7 +27,7 @@ export default function Hero() {
 <Subject/>
       <Courses/>
       <JoinUs/>
-<WhyUs/>
+{/* <WhyUs/> */}
 <AboutUs/>
 
   <Contact/>

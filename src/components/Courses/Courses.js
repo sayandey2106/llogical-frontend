@@ -20,7 +20,7 @@ export default function Courses() {
 
   const [open, setOpen] = useState(false);
   const [item, setItem] = useState(courseData)
-  const [toggle, setToggle] = useState(9);
+  const [toggle, setToggle] = useState(0);
   const toggleTab = (i) => {
     setToggle(i)
   }
@@ -32,7 +32,7 @@ export default function Courses() {
   }
   const filterCourseByClass = (type) => {
     const updated = courseData.filter((curr) => {
-      return curr.class === type
+      return curr.type === type
     })
     setItem(updated);
   }
@@ -54,7 +54,7 @@ export default function Courses() {
         <button class="py-1 px-4 focus:outline-none">Class 12 </button>
       </div> */}
           </div>
-          {/* <div class="flex items-center justify-center my-3">
+          <div class="flex items-center justify-center my-3">
             <div class="inline-flex  focus:shadow-lg" role="group">
               <button type="button" style={{ wordSpacing: "6px" }} className={toggle === 0 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
                 : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl tracking-wider  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
@@ -67,7 +67,7 @@ export default function Courses() {
 
               >ALL COURSES</button>
             </div>
-          </div> */}
+          </div>
           {/* <div class="flex items-center justify-center m-3">
   <div class="inline-flex  focus:shadow-lg " role="group">
     <button type="button" className={toggle===1?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
@@ -117,27 +117,37 @@ export default function Courses() {
   </div>
   </div> */}
 
-          {/* <div class="flex items-center justify-center m-3">
+           <div class="flex items-center justify-center m-3">
             <div class="inline-flex  focus:shadow-lg " role="group">
               <button type="button" className={toggle === 7 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
                 : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
 
                 onClick={() => {
-                  filterCourseByClass("7")
+                  filterCourseByClass("BOARD")
                   setToggle(7)
                 }}
 
 
-              >Class 7</button>
+              >School Students</button>
               <button type="button" className={toggle === 8 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
                 : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
 
 
                 onClick={() => {
-                  filterCourseByClass("8")
+                  filterCourseByClass("COLLEGE")
                   toggleTab(8)
-                }}>Class 8</button>
-              <button type="button" className={toggle === 9 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+                }}>College Students</button>
+                         <button type="button" className={toggle === 9 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+                : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+
+                onClick={() => {
+                  filterCourseByClass("PROFESSIONALS")
+                  setToggle(9)
+                }}
+
+
+              >Professionals</button>
+              {/* <button type="button" className={toggle === 9 ? "  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
                 : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
                 onClick={() => {
                   filterCourseByClass("9")
@@ -148,13 +158,16 @@ export default function Courses() {
                 onClick={() => {
                   filterCourseByClass("10")
                   toggleTab(10)
-                }}>Class 10</button>
+                }}>Class 10</button> */}
             </div>
-          </div> */}
+          </div> 
 
 
           <div class="row justify-content-center text-center">
             {
+              toggle===9 ?<div className='my-6'>
+<h1 className='text-black text-2xl'>Courses Coming Soon...</h1>
+              </div> :
               item.map((data) => {
                 return (
 
@@ -215,6 +228,7 @@ export default function Courses() {
                
                 Buy Now
                        </button>
+                       <NavLink to="/demo">
                        <button 
                
                class="inline-block px-2 py-2.5 m-1 text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r hover:from-blue-400 hover:to-blue-800 from-pink-500 to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
@@ -226,6 +240,7 @@ export default function Courses() {
                
                 Demo Class
                        </button>
+                       </NavLink>
 				</div>
 			</div>
 	</div>

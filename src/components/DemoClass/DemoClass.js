@@ -58,6 +58,7 @@ export default function DemoClass() {
   const [time, setTime]=useState("4PM-5PM");
   const [school, setSchool]=useState();
   const [board, setBoard]=useState("CBSE");
+  const [course, setCourse]=useState("");
   let dateString = date.toString()
   const demo ={dateString,time,address,school,board,grade,name}
   useEffect(() => {
@@ -242,7 +243,7 @@ export default function DemoClass() {
                    
                   </select>
                 </div> */}
-                <div className="">
+                {/* <div className="">
                   <label htmlFor="board" className="mt-1 text-black">
                     Select Board
                   </label>
@@ -270,13 +271,49 @@ export default function DemoClass() {
                     }}
                   >
                     {/* <option selected value="0">Select Board</option> */}
-                    <option value="CBSE">CBSE</option>
+                    {/* <option value="CBSE">CBSE</option>
                     <option value="ICSE">ICSE</option>
 
                     <option value="STATE">STATE</option>
                   </select>
-                </div>
-
+                </div> */} 
+  <div className="my-2">
+                    <label htmlFor="grade" className="mt-1 text-black">
+                      Select Grade
+                    </label>
+                    <select
+                      class="form-select appearance-none 
+            block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+   
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      aria-label="Default select example"
+                      name="course"
+                      required
+                      onChange={(e) => {
+                        setCourse(e.target.value)
+                      }}
+                    >
+                      {
+                        courseData.map((data)=>{
+                          return(
+                            <option value={data.name}>{data.name}</option>
+                          )
+                        })
+                      }
+                    </select>
+                  </div>
               
                 <div className="mt-3">
                 <label htmlFor="date" className=" text-black">

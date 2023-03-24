@@ -7,12 +7,13 @@ import '../AboutUs/AboutUs.css'
 import JoinUs from '../Mock/JoinUs';
 const customStyles = {
   content: {
-    top: '50%',
+    top: '35%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    width:"400px"
   },
 };
 
@@ -21,6 +22,18 @@ export default function Courses() {
   const [open, setOpen] = useState(false);
   const [item, setItem] = useState(courseData)
   const [toggle, setToggle] = useState(0);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [details, setDetails] = useState([]);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   const toggleTab = (i) => {
     setToggle(i)
   }
@@ -176,13 +189,13 @@ export default function Courses() {
                   <div class="col-lg-4 col-md-6 col-sm-12  mt-4">
                       <div class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
 		<a href="#">
-			<img class="rounded-t-lg p-8" src={data.image} style={{height:"300px"}} />
+			<img class="rounded-t-lg p-8" src={data.image} style={{height:"250px"}} />
         </a>
 			<div class="px-2 pb-5">
-				<a href="#">
+				<a href="">
 					<h3 class="text-gray-900 font-semibold text-lg tracking-tight dark:text-white">{data.name}</h3>
 				</a>
-				<div class="flex items-center text-center mt-2.5 mb-3 px-16">
+				<div class="flex items-center text-center mt-2.5 mb-3 px-16 justify-content-center">
 					<svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -215,7 +228,11 @@ export default function Courses() {
 					</svg>
 					<span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
 				</div>
-					<span class="text-3xl mx-3  font-bold text-gray-900 dark:text-white">{data.price}</span>
+        <div class="flex items-center text-center mt-2.5 mb-3 px-16 justify-content-center">
+        <h3 class="text-gray-900 mx-8 font-semibold text-lg tracking-tight dark:text-white"><h1 className='text-4xl'>{data.classes}</h1>classes</h3>
+        <h3 class="text-gray-900 mx-8 font-semibold text-lg tracking-tight dark:text-white"><h1 className='text-4xl'>60</h1>min/class</h3>
+          </div>
+					<h3 class="text-3xl mx-1  font-bold text-gray-900 dark:text-white">99₹/class</h3>
 				<div class="flex items-center mt-3 justify-content-center">
           <button 
                
@@ -223,10 +240,13 @@ export default function Courses() {
                
                data-mdb-ripple="true"
                data-mdb-ripple-color="light"
-          
+               onClick={()=>{
+                 setDetails(data.details)
+                openModal()
+               }}
                >
                
-                Buy Now
+                Details
                        </button>
                        <NavLink to="/demo">
                        <button 
@@ -239,6 +259,19 @@ export default function Courses() {
                >
                
                 Demo Class
+                       </button>
+                       </NavLink>
+                       <NavLink>
+                       <button 
+               
+               class="inline-block px-3 m-1 py-2.5 text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
+               
+               data-mdb-ripple="true"
+               data-mdb-ripple-color="light"
+          
+               >
+               
+               Buy Now
                        </button>
                        </NavLink>
 				</div>
@@ -256,6 +289,54 @@ export default function Courses() {
           </div>
 </div>
 </section>
+
+{/* //modal */}
+
+<Modal
+        isOpen={modalIsOpen}
+        // onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+ 
+        <i onClick={()=>{
+          closeModal()
+                        setDetails([])
+        }} class="fa-solid fa-xmark text-2xl"></i>
+       
+        <div class="course-learn">
+          <div class="course-leranm-tittle">
+          <h1 className='text-2xl text-bolder mb-1 text-center' style={{textDecoration:"underline", padding:"3px"}}>Course Description</h1>
+            </div>
+            <div class="row">
+              
+              <div class="col-xl-12">
+                <div class="course-learn-text f-left">
+                  <ul>
+                    {
+                      details.map((details)=>{
+                        return(
+                      
+                                   <li><i class="fa-solid fa-check"></i>{details.point}</li>
+                          
+                        )
+                      })
+                    }
+                   
+                    </ul>
+                    </div>
+                    </div>
+                    {/* <div class="col-xl-6">
+                      {/* <div class="course-leran-text">
+                        <ul>
+                          <li><i class="fa-solid fa-check"></i>Reinforcement learning upper confidence bound Thompson sampling</li>
+                          <li><i class="fa-solid fa-check"></i>Model Selection and Boosting fold cross validation parameter</li>
+                          <li><i class="fa-solid fa-check"></i>Use Machine Learning for personal purpose of machine</li>
+                          </ul></div> */}
+                          {/* </div>  */}
+                          </div></div>
+      </Modal>
 
 </div>
   

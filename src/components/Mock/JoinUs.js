@@ -82,8 +82,9 @@ export default function JoinUs() {
               <div class="col-md-6">
                 <div class="row apply-crd m-1">
                   <div class="apply-crd-img col-lg-2">
+                  
                     <picture> 
-                      <source srcset="http://skilify.theuxuidesigner.com/images/webp/apply-crd-img.webp" type="image/webp"/><img src="http://skilify.theuxuidesigner.com/images/webp/apply-crd-img.webp" alt="Image Description"/>
+                      <source srcset="https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&w=600" type="image/webp"/><img src="https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image Description" style={{width:"70px",height:"70px"}}/>
                     </picture>
                   </div>
                   <div class="apply-crd-content col-lg-10 mt-4 mt-lg-0">
@@ -92,21 +93,22 @@ export default function JoinUs() {
                   </div>
                   <ul class="know-about-points mb-5"> 
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Flexible Timing for teachers</h6>
+                  <h6 class="card-text text-medium-bold">Flexible Timing for trainers</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">A higher pay to our educators who serve LLOGICAL</h6>
+                  <h6 class="card-text text-medium-bold">Higher pay to our trainers</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Teach what you love. We will give you the tools to create a course.</h6>
+                  <h6 class="card-text text-medium-bold">Teach what you love. We will give you the required tools </h6>
                 </li>
               </ul>
-              <a class="btn btn-primary" href="register.html">Apply as trainer</a>
+              <a class="btn btn-primary" href="https://forms.gle/a1ACqdA1mubHieVF7" target="blank">Apply as trainer</a>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="row apply-crd m-1">
                   <div class="apply-crd-img col-lg-2">
+          
                     <picture> 
                       <source srcset="http://skilify.theuxuidesigner.com/images/webp/apply-crd-img.webp" type="image/webp"/><img src="http://skilify.theuxuidesigner.com/images/webp/apply-crd-img.webp" alt="Image Description"/>
                     </picture>
@@ -117,16 +119,16 @@ export default function JoinUs() {
                   </div>
                   <ul class="know-about-points mb-5"> 
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Get access to top courses for your team</h6>
+                  <h6 class="card-text text-medium-bold">Get access to the top skills for your students</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center mb-3"><img class="me-3" src="http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Get affordable courses fees for your students</h6>
+                  <h6 class="card-text text-medium-bold">Get affordable courses for your students</h6>
                 </li>
                 <li class="know-about-point d-flex align-items-center"><img class="me-3" src="	http://skilify.theuxuidesigner.com/images/svg/check-point.svg" alt="Image Description"/>
-                  <h6 class="card-text text-medium-bold">Offline handsone experiments for your students</h6>
+                  <h6 class="card-text text-medium-bold">Offline hands-on experiments for your students</h6>
                 </li>
               </ul>
-              <button class="btn btn-primary" >Apply as school</button>
+              <a class="btn btn-primary" href="https://forms.gle/h28UhRNWL2sSuLzA7" target="blank" >Apply as a school</a>
                 </div>
               </div>
             </div>

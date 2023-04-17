@@ -194,7 +194,7 @@ export default function Courses() {
         </a>
 			<div class="px-2 pb-5">
 				<a href="">
-					<h3 class="text-gray-900 font-semibold text-lg tracking-tight dark:text-white">{data.name}</h3>
+					<h3 class="text-gray-900 font-semibold text-lg tracking-tight text-black">{data.name}</h3>
 				</a>
 				<div class="flex items-center text-center mt-2.5 mb-3 px-16 justify-content-center">
           <div className='flex'>

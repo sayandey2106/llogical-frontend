@@ -14,11 +14,26 @@ export default function Footer() {
       <span class="ml-3 text-xl">LLOGICAL</span>
     </a>
     </NavLink>
-    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Llogical —
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 mt-4">© 2023 Llogical —
       <a href="mailto:support@llogical.com" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">helpdesk@llogical.com</a>
     </p>
-    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-    
+    <span class="inline-flex  sm:mt-0 mt-4 justify-center ">
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 ">
+      <NavLink to="/privacy">
+      
+      <a  class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Learner Privacy & Safety</a>
+        
+      </NavLink>
+    </p>
+    </span>
+    <span class="inline-flex  sm:mt-0 mt-4 justify-center ">
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-500 sm:py-2 sm:mt-0 ">
+      <NavLink to="/terms">
+      
+      <a  class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Terms and Conditions</a>
+        
+      </NavLink>
+    </p>
     </span>
   </div>
 </footer>

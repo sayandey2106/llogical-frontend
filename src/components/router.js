@@ -14,6 +14,10 @@ import Register from './Register/Register';
 import Subject from './Subject/Subject';
 import JoinUs from './Mock/JoinUs'
 import MockForm from './DemoClass/MockForm';
+import Privacy from './Privacy/Privacy';
+import Terms from './Privacy/Terms';
+import SingleCourse from './Courses/SingleCourse';
+import { courseData } from '../data/course';
 export default function Router() {
   return (
     <div>
@@ -40,7 +44,10 @@ export default function Router() {
     <Route exact path="/register" element={<Register/>}/> 
     <Route exact path="/subject" element={<Subject/>}/> 
     <Route exact path="/mocktest" element={<MockForm/>}/>
-    <Route exact path="/joinus" element={<JoinUs/>}/>  
+    <Route exact path="/joinus" element={<JoinUs/>}/>
+    <Route exact path="/privacy" element={<Privacy/>}/>   
+    <Route exact path="/terms" element={<Terms/>}/>   
+    <Route exact path="/courses/:name" element={<SingleCourse/>}/>   
       </Routes>
 
       :
@@ -56,6 +63,9 @@ export default function Router() {
     <Route exact path="/subject" element={<Subject/>}/> 
     <Route exact path="/mocktest" element={<MockForm/>}/> 
     <Route exact path="/joinus" element={<JoinUs/>}/> 
+    <Route exact path="/privacy" element={<Privacy/>}/> 
+    <Route exact path="/terms" element={<Terms/>}/>  
+    <Route exact path="/courses/:id" element={<div><SingleCourse courseData={courseData}/></div>}/>   
       </Routes>
   }
     

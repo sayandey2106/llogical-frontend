@@ -3,8 +3,9 @@ import Modal from 'react-modal';
 import { NavLink } from 'react-router-dom';
 import { courseData } from '../../data/course';
 import Slider from '../Hero/Slider';
-import '../AboutUs/AboutUs.css'
+import './Course.css';
 import JoinUs from '../Mock/JoinUs';
+import { Container } from '@mui/material';
 const customStyles = {
   content: {
     top: '35%',
@@ -57,7 +58,7 @@ export default function Courses() {
   return (
     <div>
       {/* <Slider/> */}
-
+      <Container>
       <section class=" container text-gray-600 body-font overflow-hidden">
         <div class="container px-5 py-16 mx-auto">
           <div class="flex flex-col text-center w-full mb-20">
@@ -187,7 +188,7 @@ export default function Courses() {
 
 
                   <div class="col-lg-4 col-md-6 col-sm-12  mt-4">
-                      <div class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+                      <div class="bg-white shadow-md rounded-lg course-card  max-w-sm dark:bg-gray-800 dark:border-gray-700">
 		<a href="#">
 			<img class="rounded-t-lg p-8" src={data.image} style={{height:"250px"}} />
         </a>
@@ -196,6 +197,7 @@ export default function Courses() {
 					<h3 class="text-gray-900 font-semibold text-lg tracking-tight dark:text-white">{data.name}</h3>
 				</a>
 				<div class="flex items-center text-center mt-2.5 mb-3 px-16 justify-content-center">
+          <div className='flex'>
 					<svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg">
 						<path
@@ -226,17 +228,19 @@ export default function Courses() {
 							d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
 						</path>
 					</svg>
+          </div>
 					<span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
 				</div>
-        <div class="flex items-center text-center mt-2.5 mb-3 px-16 justify-content-center">
-        <h3 class="text-gray-900 mx-8 font-semibold text-lg tracking-tight dark:text-white"><h1 className='text-4xl'>{data.classes}</h1>classes</h3>
-        <h3 class="text-gray-900 mx-8 font-semibold text-lg tracking-tight dark:text-white"><h1 className='text-4xl'>60</h1>min/class</h3>
-          </div>
-					<h3 class="text-3xl mx-1  font-bold text-gray-900 dark:text-white">99₹/class</h3>
+        {/* <div class="flex items-center text-center mt-2.5 mb-3 px-16 justify-content-center">
+        <h3 class="text-gray-900 mx-8 font-semibold text-lg tracking-tight dark:text-white"><h1 className='text-4xl'>{data.classes}</h1>sessions</h3>
+        <h3 class="text-gray-900 mx-8 font-semibold text-lg tracking-tight dark:text-white"><h1 className='text-4xl'>60</h1>min/session</h3>
+          </div> */}
+					{/* <h3 class="text-3xl mx-1  font-bold text-gray-900 dark:text-white">{data.type==="BOARD" ? "₹199 / session":"₹299/session"}</h3> */}
 				<div class="flex items-center mt-3 justify-content-center">
+          <NavLink to={`/courses/${data.id}`}>
           <button 
                
-               class="inline-block px-3 m-1 py-2.5 text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
+               class="px-3 m-1 py-1 text-white text-xs btn-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
                
                data-mdb-ripple="true"
                data-mdb-ripple-color="light"
@@ -248,23 +252,25 @@ export default function Courses() {
                
                 Details
                        </button>
+                       </NavLink>
                        <NavLink to="/demo">
                        <button 
                
-               class="inline-block px-2 py-2.5 m-1 text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r hover:from-blue-400 hover:to-blue-800 from-pink-500 to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
+               class="inline-block px-2 py-1 btn-sm m-1 text-white text-xs leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r hover:from-blue-400 hover:to-blue-800 from-pink-500 to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
                
                data-mdb-ripple="true"
                data-mdb-ripple-color="light"
           
                >
                
-                Demo Class
+                Buy Now
                        </button>
                        </NavLink>
-                       <NavLink>
+				</div>
+                       {/* <NavLink>
                        <button 
                
-               class="inline-block px-3 m-1 py-2.5 text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
+               class="inline-block px-3 m-1 py-1 btn-sm text-white text-sm leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out rounded"
                
                data-mdb-ripple="true"
                data-mdb-ripple-color="light"
@@ -273,8 +279,7 @@ export default function Courses() {
                
                Buy Now
                        </button>
-                       </NavLink>
-				</div>
+                       </NavLink> */}
 			</div>
 	</div>
 
@@ -289,6 +294,7 @@ export default function Courses() {
           </div>
 </div>
 </section>
+</Container>
 
 {/* //modal */}
 
